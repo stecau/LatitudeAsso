@@ -1,0 +1,10 @@
+.new{
+    @include block-position(absolute, 20px, 10px);
+    @include elm-style( (), $new);
+    &--enable{
+        @include elm-style( (enable), $new);
+    }
+    &--disable{
+        @include elm-style( (disable), $new);
+    }
+}

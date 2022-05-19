@@ -1,0 +1,27 @@
+.menu-fig{
+    @include flex-display(column, flex-start, flex-start, nowrap, no-adjust);
+    @include elm-style( (), $menu-fig);
+    @include block-position(relative);
+    & > img{
+        @include elm-style( (img), $menu-fig);
+    }
+    & > .rogne{
+        @include elm-style( (rogne), $menu-fig);
+    }
+    &__caption{
+        @include elm-style( (caption), $menu-fig);
+        @include flex-display(row, space-between, center, nowrap, adjust);
+        @include block-position(absolute, none, none, -10px);
+        & > h1{
+            @include elm-style( (caption, h1), $menu-fig);
+        }
+        @each $key, $value in $illustration-responsive{
+            @include responsive($key){
+                @include flex-display(row, space-around, center, nowrap, adjust);
+            }
+        }
+    }
+    &__heart{
+        @include elm-style( (heart), $menu-fig);
+    }
+}

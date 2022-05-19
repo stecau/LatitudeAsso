@@ -1,0 +1,20 @@
+/* ========================================================================== */
+/* Déclaration initiale for BOX-SIZING */
+* {
+    box-sizing: content-box; // box-sizing est appliqué à tous les éléments
+}
+
+/* ========================================================================== */
+/* Definition of the Google font polices */
+    /* For normal text */
+body{
+    font-family: "Roboto", Verdana, sans-serif; // Roboto font police used for text
+}
+    /* For titles H1 */
+h1, .footer > h2{
+    font-family: "Shrikhand", Verdana, sans-serif; // Shrikhand font police used for title h1 except 'accueil' page
+}
+    /* For titles H1 exception in 'accueil' page */
+#acceuil{
+    font-family: "Roboto", Verdana, sans-serif; // Roboto font police used for title h1 in 'accueil' page
+}

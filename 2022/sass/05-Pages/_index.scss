@@ -1,0 +1,155 @@
+.title{
+    @include flex-display(column, center, center, nowrap, no-adjust);
+    margin: map-get($h1, margin);
+    padding: map-get($h1, padding);
+    box-shadow: inset 0px -20px 10px -10px $color-primary;
+    &--anim{
+        opacity: 0;
+        perspective: 100px;
+        animation: perspective-texte 10s cubic-bezier(.3,.3,.7,.7) infinite;
+        & > h1{
+            font-size: map-get($h1, font-size);
+            text-align: center;
+            color: scale-color($color-primary, $lightness: -50%);
+            transform: rotate3d(1, 0, 0, 10deg);
+            animation: ombre-texte 10s cubic-bezier(.3,.3,.7,.7) infinite;
+        }
+    }
+}
+
+@keyframes perspective-texte {
+    0% {
+        perspective-origin: 0% 0%;
+    }
+    5% {
+        perspective-origin: 5% 0%;
+        opacity: 0;
+    }
+    10% {
+        perspective-origin: 10% 0%;
+        opacity: 1;
+    }
+    50% {
+        perspective-origin: 50% 0%;
+    }
+    90% {
+        perspective-origin: 90% 0%;
+        opacity: 1;
+    }
+    95% {
+        perspective-origin: 95% 0%;
+        opacity: 0;
+    }
+    100% {
+        perspective-origin: 100% 0%;
+    }
+}
+
+@keyframes ombre-texte {
+    0% {
+        text-shadow: -30px 0px 10px scale-color($color-primary, $lightness: 25%);
+        transform: rotate3d(1, 0, 0, 20deg);
+    }
+    5% {
+        text-shadow: -30px 0px 7px scale-color($color-primary, $lightness: 25%);
+        transform: rotate3d(1, 0, 0, 10deg);
+    }
+    50% {
+        text-shadow: 0px -10px 3px scale-color($color-primary, $lightness: 25%);
+        transform: rotate3d(1, 0, 0, 5deg);
+    }
+    95% {
+        text-shadow: 30px 0px 7px scale-color($color-primary, $lightness: 25%);
+        transform: rotate3d(1, 0, 0, 10deg);
+    }
+    100% {
+        text-shadow: 30px 0px 10px scale-color($color-primary, $lightness: 25%);
+        transform: rotate3d(1, 0, 0, 20deg);
+    }
+}
+
+
+.telechargement{
+    @include flex-display(column-reverse, flex-start, flex-start, nowrap, no-adjust);
+    @include block-position(relative);
+    background-color: $color-primary;
+    .telechargement-article{
+        @include flex-display(column, flex-start, flex-start, nowrap);
+        @include block-position(relative, none, none, none, none, 1);
+        padding-bottom: map-get($bottom-space, big);
+        & > h2{
+            margin: map-get($h2 , margin);
+            padding: map-get($h2 , padding);
+            color: scale-color($color-primary, $lightness: -65%);
+        }
+    }
+    .telechargement-aside{
+        @include flex-display(column, flex-start, flex-start, nowrap);
+        @include block-position(relative, none, none, none, none, 1);
+        margin-bottom: map-get($bottom-space, small);
+        & > h2{
+            margin: map-get($h2 , margin);
+            padding: map-get($h2 , padding);
+            color: scale-color($color-primary, $lightness: -65%);
+        }
+    }
+    .etoile{
+        &--anim{
+            @include block-position(absolute, 0, 0, 0, 0, 0);
+            overflow: hidden;
+            @include flex-display(row, center, flex-start, nowrap, no-adjust);
+            & > img{
+                height: 750px;
+                display: inline-block;
+                opacity: 0;
+                animation: perspective-star 10s cubic-bezier(.3,.3,.7,.7) infinite;
+            }
+        }
+        &__background{
+            @include block-position(absolute, 0, 0, 0, 0, 1);
+            background: linear-gradient(transparent, white);
+        }
+    }
+}
+
+@keyframes perspective-star {
+    0% {
+        transform: translate3d(-50px, -80px, 0) rotateZ(-5deg);
+    }
+    5% {
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    95% {
+        opacity: 0;
+    }
+    100% {
+        transform: translate3d(50px, -60px, 0) rotateZ(5deg);
+    }
+}
+
+.telechargement-container{
+    @include flex-display(row, space-between, space-between, wrap);
+    box-sizing: border-box;
+    padding: 0 $medium;
+    & > a{
+        box-sizing: border-box;
+        text-decoration: none; // No link default style
+        color: scale-color($color-primary, $lightness: -65%);
+        width: 100%;
+        margin-bottom: map-get($bottom-space, small);
+        border-radius: map-get($radius-size, medium);
+        box-shadow: 0 4px 7px 0px $color-shadow;
+        position: relative;
+        @each $key, $value in $fig-responsive{
+            @include responsive($key){
+                width: $value;
+            }
+        }
+    }
+}

@@ -1,0 +1,77 @@
+.jaime{
+    @include block-position(relative);
+    @include elm-style( (), $jaime);
+    & > .fas.fa-heart{
+        @include elm-style( (fas_fa-heart), $jaime);
+    }
+    & > .far.fa-heart{
+        @include block-position(absolute, none, none, none, none, 3);
+    }
+    &__voile{
+        @include elm-style( (voile), $jaime);
+        @include block-position(absolute, none, none, 4px, none, 1);
+        &--background{
+            @include elm-style( (voile, background), $jaime);
+        }
+    }
+    &__vague{
+        @include flex-display(row, flex-end, flex-end, nowrap, no-adjust);
+        @include elm-style( (vague), $jaime);
+        @include block-position(absolute, none, 0, -2px, none, 2);
+        & > div{
+            @include elm-style( (vague, div), $jaime);
+        }
+        &--background > div{
+            @include elm-style( (vague, background-div), $jaime);
+        }
+    }
+
+    &:hover > .far.fa-heart{
+        animation: heart-contour 1000ms 500ms forwards;
+    }
+    &:hover > .fas.fa-heart{
+        animation: heart-contain0 200ms 245ms forwards;
+    }
+    &:hover > .jaime__voile{
+        animation: heart-contain1 2000ms forwards;
+    }
+    &:hover > .jaime__vague{
+        animation: heart-contain2 1500ms forwards;
+    }
+}
+
+@keyframes heart-contour {
+    0%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+
+@keyframes heart-contain0 {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+@keyframes heart-contain1 {
+    0%{
+        transform: translateY(0);
+    }
+    100%{
+        transform: translateY(-27px);
+    }
+}
+
+@keyframes heart-contain2 {
+    0%{
+        transform: translate(0, 0);
+    }
+    100%{
+        transform: translate(50px, -27px);
+    }
+}

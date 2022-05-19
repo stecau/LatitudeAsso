@@ -1,0 +1,61 @@
+/* ========================================================================== */
+/* Base for '1st field' for css (police, norms : box-sizing,...) */
+    /* Start import */
+@import "./01-base/base";
+    /* End import */
+/* ========================================================================== */
+
+/* ========================================================================== */
+/* Utils declaration for css (variables, functions, mixins, %placeholders for extensions */
+    /* Start import */
+@import "./02-Utils/variables";
+@import "./02-Utils/functions";
+@import "./02-Utils/mixins";
+    /* End import */
+/* ========================================================================== */
+
+/* ========================================================================== */
+/* Layouts for css blocks BEM (header, footer, form,...) */
+    /* Start import */
+    /* BEM for parent div inside body */
+@import "./03-Layout/bloc-page";
+    /* BEM for header */
+@import "./03-Layout/header";
+    /* BEM for footer */
+@import "./03-Layout/footer";
+    /* End import */
+/* ========================================================================== */
+
+/* ========================================================================== */
+/* Components for css INDEPENDANT blocks BEM (button,...) */
+    /* Start import */
+    /* BEM for ohmyfood introduction*/
+@import "./04-Compsants/fonctionnement";
+    /* BEM for restaurant preview (figure structure) */
+@import "./04-Compsants/resto-fig";
+    /* BEM for plat presentation in menu */
+@import "./04-Compsants/plat";
+    /* BEM for button */
+@import "./04-Compsants/button";
+    /* BEM for new add-on */
+@import "./04-Compsants/new";
+    /* BEM for "J'aime" behaviour */
+@import "./04-Compsants/jaime";
+    /* End import */
+/* ========================================================================== */
+
+/* ========================================================================== */
+/* Pages for css specific blocks code in several pages (specific rules in a page) */
+    /* Start import */
+    /* 'Accueil' page css generation */
+@import "./05-Pages/index";
+    /* End import */
+/* ========================================================================== */
+
+/* ========================================================================== */
+/* Themes for specific css themes (Noel, promo,...) */
+    /* No specification */
+/* ========================================================================== */
+/* Vendors for external style like bootstrap or JQuery */
+    /* No specification */
+/* ========================================================================== */

@@ -1,0 +1,20 @@
+.resto-fig{
+    @include elm-style( (), $resto-fig);
+    @include flex-display(column, flex-start, flex-start, nowrap, no-adjust);
+    & > img{
+        @include elm-style( (img), $resto-fig);
+    }
+    &__caption{
+        @include elm-style( (caption), $resto-fig);
+        @include flex-display(row, space-between, center, nowrap, no-adjust);
+    }
+    &__description > h3{
+        @include elm-style( (description-h3), $resto-fig);
+    }
+    &__description > p{
+        @include elm-style( (description-p), $resto-fig);
+    }
+    &__heart{
+        @include elm-style( (heart), $resto-fig);
+    }
+}

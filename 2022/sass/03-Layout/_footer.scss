@@ -1,0 +1,35 @@
+.footer{
+    background-color: $color-footer;
+    color: $color-primary;
+    padding: $medium;
+    &__block{
+        margin-top: $medium * 1.5;
+        & > h2{
+            font-size: map-get($h2, font-size);
+            margin: map-get($h2, margin);
+        }
+    }
+    &-list{
+        @include flex-display(row, flex-start, flex-start, wrap, no-adjust);
+        list-style-type: none;
+        padding-left: $very-small * 2;
+        & > li{
+            box-sizing: border-box;
+            width: 100%;
+            padding: $very-small 0;
+            @each $key, $value in $footer-responsive{
+                @include responsive($key){
+                    width: $value;
+                }
+            }
+        }
+        &__link{
+            text-decoration: none;
+            color: $color-primary;
+            font-size: $icon-size - 2px;
+            & > i{
+                padding: 0 (2 * $very-small) 0 0;
+            }
+        }
+    }
+}

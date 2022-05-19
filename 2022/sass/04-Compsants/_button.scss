@@ -1,0 +1,16 @@
+.button{
+    @include elm-style( (), $button);
+    &--commande{
+        @include elm-style( (commande), $button);
+    }
+    @include block-position(relative, none, none, none, none, 1);
+    &:hover {
+        &::after {
+            @include elm-style( (hover, after), $button);
+        }
+    }
+    &::after {
+        @include block-position(absolute, 0, 0, 0, 0, -1);
+        @include elm-style( (after), $button);
+    }
+}

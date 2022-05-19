@@ -1,0 +1,326 @@
+/* ========================================================================== */
+/* ===                              Variables                             === */
+/* ========================================================================== */
+/* Breakpoints variables */
+    /* Breakpoints */
+$breakpoints: (
+    mobile: 769px,
+    desktop: 1135px,
+    max-width: 1920px
+);
+    /* format - breakpoints correspondance */
+$responsive: (
+    tablette: mobile,
+    desktop: desktop
+);
+
+/* ========================================================================== */
+/* Color variables */
+    /* Background or border or icon font */
+$color-primary: #D2D3CB; // Main color for button, heart and disk with number in 'fonctionnement'
+$color-secondary: #FFFFFF; // Second color for gradient in button and heart
+$color-tertiary: #99E2D0; // Color for title underline in 'menu' and 'new' card
+$color-quaternary: #777777; // Color for icon in 'fonctionnement'
+$color-card: scale-color($color-quaternary, $lightness: +100%); // Color for 'resto' card in 'acceuil' and 'plat' in 'resto menu' [white : #FFFFFF]
+$color-form: scale-color($color-quaternary, $lightness: +84.5%); // Color for 'formulary' in 'accueil' [color = #EAEAEA]
+$color-city-section: scale-color($color-quaternary, $lightness: +93.5%); // Color for 'city section' in 'accueil' [color = #F6F6F6]
+$color-footer: scale-color($color-quaternary, $lightness: -55.5%); // Color for 'footer' [color = #353535]
+$color-loading-spinner: scale-color($color-quaternary, $lightness: +100%, $alpha: -2%);; // Color for loading spinner [color = rgba(255, 255, 255, 0.998)]
+    /* Shadow */
+$color-shadow: scale-color($color-quaternary, $lightness: +64%); // Color for shadows [color = #CECECE]
+    /* Font color */
+$color-texte-primary: #000000;
+$color-texte-secondary: #FFFFFF;
+
+/* ========================================================================== */
+/* Global Size and Box (margin, padding, ...) definition */
+$big: 50px;
+$medium: 25px;
+$small: 20px;
+$very-small: 5px;
+$h1: (
+    margin: 0,
+    padding: ($big - 10px) ($big + 10px) ($big - 10px) ($big + 10px),
+    font-size: 180%
+);
+$h2: (
+    margin: 0,
+    padding: $big 0 $medium $medium,
+    font-size: 110%
+);
+$h3: (
+    margin: 0,
+    padding-top: $medium - 2px,
+    padding-bottom: $very-small + 2px,
+    font-size: 110%
+);
+$p: (
+    margin: 0,
+    padding: $small $small 0 $small,
+    padding-top: $very-small,
+    font-size: 110%
+);
+
+$bottom-space: ( // distance for bottom margin or padding
+    big: $big,
+    medium: $medium,
+    small: $small
+);
+$radius-size: ( // size of the border radius
+    big: $medium + 10px,
+    medium: $medium,
+    small: $small,
+    very-small: $very-small
+);
+
+$icon-size: 18px;
+
+/* ========================================================================== */
+/* Specific header variables */
+$header-margin: 23px;
+
+/* ========================================================================== */
+/* Specific 'footer' variables */
+    /* Footer responsive variables */
+$footer-responsive: (
+    tablette: 50%,
+    desktop: 25%
+);
+
+/* ========================================================================== */
+/* Specific 'button' variables */
+$button: (
+    color: $color-texte-secondary,
+    background: linear-gradient(to top, $color-primary, $color-secondary),
+    padding: $small $medium,
+    margin: ($medium + 10px) auto ($big + 10px) auto,
+    border-radius: map-get($radius-size, big),
+    box-shadow: 0px 5px 10px 2px $color-shadow,
+    commande: (
+        margin: ($big - 10px) auto ($big + 20px) auto,
+        padding: $small $big,
+        appearance: none,
+        border: 0,
+        cursor: pointer
+    ),
+    hover: (
+        after: (
+            opacity: 1
+        )
+    ),
+    after: (
+        content: "",
+        background: linear-gradient(to top, lighten($color-primary, 5%), lighten($color-secondary, 5%)),
+        box-shadow: 0px 8px 10px 5px darken($color-shadow, 5%),
+        border-radius: map-get($radius-size, big),
+        opacity: 0,
+        transition: opacity 250ms
+    )
+);
+
+/* ========================================================================== */
+/* Specific 'fonctionnement' variables */
+    /* Dimension for fonctionnement items */
+$dim-fonction-items: (
+    number-content: 9.156px,
+    number-pad: $very-small + 4px,
+    icon-margin: $medium,
+    icon-content: 23.75px,
+    span-width: 311px
+);
+$left-move: map-get($dim-fonction-items, number-content) / 2 +
+            map-get($dim-fonction-items, number-pad);
+$texte-width: map-get($dim-fonction-items, icon-margin) * 2 +
+              map-get($dim-fonction-items, icon-content) +
+              map-get($dim-fonction-items, span-width);
+             
+
+/* ========================================================================== */
+/* Specific 'restaurant figure' variables */
+$resto-fig: (
+    margin: 0,
+    img: (
+        width: 100%,
+        height: 175px,
+        object-fit: cover, // keep image proportion and adjust with image area
+        border-top-left-radius: map-get($radius-size, medium),
+        border-top-right-radius: map-get($radius-size, medium)
+    ),
+    caption: (
+        background-color: $color-card,
+        border-bottom-left-radius: map-get($radius-size, medium),
+        border-bottom-right-radius: map-get($radius-size, medium),
+        padding: 0 $medium $small $medium  
+    ),
+    description-h3: (
+        margin: map-get($h3, margin),
+        padding-top: map-get($h3, padding-top)
+    ),
+    description-p: (
+        margin: map-get($p, margin),
+        padding-top: map-get($p, padding-top)
+    ),
+    heart: (
+        margin: $very-small,
+        font-size: x-large
+    )
+);
+    /* resto-fig(link) responsive variables */
+$fig-responsive: (
+    tablette: 48%,
+    desktop: 24%
+);
+
+/* ========================================================================== */
+/* Specific 'jaime' variables */
+$anim-size: 24px;
+$jaime: (
+    overflow: hidden,
+    cursor: pointer,
+    fas_fa-heart: (
+        opacity: 0,
+        color: transparent,
+        background: linear-gradient(to top, $color-primary, $color-secondary), // Attention : 'background' first and after 'background-clip: text'
+        background-clip: text, // Attention : 'background-clip: text' after background
+        -webkit-background-clip: text // Attention : webkit not written by sass
+    ),
+    voile: (
+        width: $anim-size,
+        height: $anim-size,
+        background-color: lighten($color-quaternary, 50%),
+        background: (
+            background-color: $color-card,
+        )
+    ),
+    vague: (
+        width: 3 * $anim-size,
+        height: $anim-size,
+        background-color: transparent,
+        div: (
+            width: 16%,
+            height: 25%,
+            background-color: lighten($color-quaternary, 50%),
+            border-bottom-left-radius: map-get($radius-size, very-small),
+            border-bottom-right-radius: map-get($radius-size, very-small)
+        ),
+        background-div: (
+            background-color: $color-card
+        )
+    )
+);
+
+/* ========================================================================== */
+/* Specific 'new' variables */
+$new: (
+    margin: 0,
+    box-sizing: border-box,
+    width: 80px,
+    background-color: $color-tertiary,
+    color: darken($color-tertiary, 40%),
+    padding: 6px,
+    border-radius: map-get($radius-size, very-small) - 2px,
+    font-size: 90%,
+    text-align: center,
+    enable: (
+        display: block
+    ),
+    disable: (
+        display: none
+    )
+);
+
+/* ========================================================================== */
+/* Specific 'menu figure' variables */
+$menu-fig: (
+    margin: 0,
+    img: (
+        width: 100%,
+        max-height: 450px,
+        object-fit: cover // keep image proportion and adjust with image area
+    ),
+    rogne: (
+        height: calc(100vw * 0.67)
+    ),
+    caption: (
+        background-color: lighten($color-quaternary, 50%),
+        border-top-left-radius: map-get($radius-size, big) + 10px,
+        border-top-right-radius: map-get($radius-size, big) + 10px,
+        box-sizing: border-box,
+        padding: $medium $medium 0 $medium,
+        h1: (
+            margin: map-get($h1, margin),
+            padding-top: map-get($h1, padding-top),
+            font-size: map-get($h1, font-size) + 20%
+        )
+    ),
+    heart: (
+        margin-right: $medium,
+        margin-top: $medium - 2px,
+        font-size: x-large
+    )
+);
+
+/* ========================================================================== */
+/* Specific 'plat' variables */
+$coche-icon-size: 20.8px;
+$icon-padding: $medium + 3px;
+$plat: (
+    background-color: $color-card,
+    border-radius: map-get($radius-size, small),
+    box-shadow: 0 2px 7px -1px $color-shadow,
+    margin: ($very-small + 2px) 0,
+    overflow: hidden,
+    cursor: pointer,
+    description: (
+        margin: ($small - 3px) auto ($small - 3px) (2 * $very-small),
+        min-width: 0,
+        h3: (
+            margin: map-get($h3, margin),
+            padding-bottom: map-get($h3, padding-bottom),
+            font-size: map-get($h3, font-size),
+            font-weight: 600,
+        ),
+        p: (
+            margin: map-get($p, margin),
+            font-size: map-get($p, font-size) - 20%,
+        )
+    ),
+    prix: (
+        margin: auto $medium ($small - 3px) (2 * $very-small),
+        font-weight: 600,
+        font-size: map-get($p, font-size) - 20%
+    ),
+    icon: (
+        box-sizing: border-box,
+        padding: $icon-padding,
+        background-color: $color-tertiary,
+        text-align: center,
+        border-top-right-radius: map-get($radius-size, small),
+        border-bottom-right-radius: map-get($radius-size, small),
+        animationTranslate: (
+            overflow: hidden,
+            width: 0,
+            min-width: 0,
+            transition: all 600ms ease-in-out
+        ),
+        animationRotate: (
+            font-size: 130%,
+            color: $color-card,
+            transform: rotate(-270deg),
+            transition: transform 300ms 300ms ease-in-out
+        )
+    ),
+    hover: (
+        plat__icon--animationTranslate: (
+            width: 2 * $icon-padding + $coche-icon-size,
+            min-width: 2 * $icon-padding + $coche-icon-size,
+        ),
+        plat__icon--animationRotate: (
+            transform: rotate(0),
+        )
+    )
+);
+
+/* ========================================================================== */
+/* Specific 'accueil' page variables */
+// No Specific variables

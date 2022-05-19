@@ -1,0 +1,46 @@
+.plat{
+    @include flex-display(row, flex-start, center, nowrap, no-adjust);
+    @include elm-style( (), $plat);
+    &__description{
+        @include elm-style( (description), $plat);
+        @include flex-display(column, flex-start, flex-start, nowrap, no-adjust);
+        & > h3{
+            @include elm-style( (description, h3), $plat);
+            @include ellipsis;
+        }
+        & > p{
+            @include elm-style( (description, p), $plat);
+            @include ellipsis;
+        }
+    }
+    &__prix{
+        @include elm-style( (prix), $plat);
+    }
+    &__icon{
+        @include elm-style( (icon), $plat);
+        &--animationTranslate {
+            @include elm-style( (icon, animationTranslate), $plat);
+        }  
+        &--animationRotate {
+            @include elm-style( (icon, animationRotate), $plat);
+        }
+    }
+    &:hover{
+        & .plat__icon--animationTranslate{
+            @include elm-style( (hover, plat__icon--animationTranslate), $plat);
+        }
+        & .plat__icon--animationRotate{
+            @include elm-style( (hover, plat__icon--animationRotate), $plat);
+        }
+    }
+    // animation: plat-anim 1.05s 450ms cubic-bezier(.15,.4,.5,.5) backwards;
+}
+
+@keyframes plat-anim {
+    0% {
+        transform: translateY(30px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}

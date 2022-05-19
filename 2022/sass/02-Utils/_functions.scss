@@ -1,0 +1,48 @@
+/* ========================================================================== */
+/* ===                              Functions                             === */
+/* ========================================================================== */
+
+/* Function in order to get breaking point in founction of the type of data */
+@function brkpt($type){
+    @if ( ($type == icon) or ($type == desktop) ){
+        @return map-get($breakpoints, desktop);
+    }@else{ // Texte or mobile
+        @return map-get($breakpoints, mobile);
+    }
+}
+
+/* Function in order to know if $var is a 'map' or a 'list' */
+@function is($var, $type){
+    // @error "La valeur est : #{$var}";
+    // @error "Le type est : #{$type}";
+    // @error "Le resultat est : #{(type-of($var) == $type)}";
+    @return type-of($var) == $type;
+}
+
+/* Function in order to remove index in list */
+@function remove($list, $index) {
+    $new-list: ();
+    @each $value in $list {
+        @if ( index($list, $value) != $index ) {
+            $new-list: append($new-list, $value);
+        }
+    }
+    @return $new-list;
+}
+
+/* Function to get data for BEM */
+@function get-value($list-keys, $my-map) {
+    @each $my-key in $list-keys {
+        @if ( index(map-keys($my-map), $my-key) != null ) {
+            $my-new-map: map-get($my-map, $my-key);
+            @if ( $my-key != nth($list-keys, -1) ) {
+                $my-new-list: remove($list-keys, 1);
+                @return get-value($my-new-list, $my-new-map);
+            } @else {
+                @return $my-new-map;
+            }
+        } @else {
+            @error "Function 'get-value' : clé (#{$my-key}) de la liste [#{$list-keys}] non présente dans le map [#{$my-map}] ";
+        }
+    }
+}

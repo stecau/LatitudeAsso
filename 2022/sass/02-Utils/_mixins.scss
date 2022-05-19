@@ -1,0 +1,172 @@
+/* ========================================================================== */
+/* ===                               Mixins                               === */
+/* ========================================================================== */
+/* Mixins for media queries */
+    /* For Header */
+@mixin mobile-except($type){
+    @if ($type == texte){
+        @media screen and (min-width: brkpt($type)){
+            @content;
+        }
+    }
+    @if ($type == icon){
+        @media screen and (min-width: brkpt($type)){
+            @content;
+        }
+    }
+}
+
+    /* For Footer and resto-container */
+@mixin responsive($screen-format){
+    @media screen and ( min-width: brkpt(map-get($responsive, $screen-format)) ){
+        @content;
+    }
+}
+
+/* ========================================================================== */
+/* Global Mixin */
+    /* Mixin for Flex display */
+@mixin flex-display($direction: row, $main-dir: center, $secondary-dir: center, $wrap: wrap, $adjust: adjust){
+    display: flex;
+    @if ( $direction != row ){
+        flex-direction: $direction;
+    }
+    @if ( $main-dir != flex-start ){
+        justify-content: $main-dir;
+    }
+    @if ( ($secondary-dir != flex-start) and $wrap == nowrap ){
+        @if ($secondary-dir == space-between) {
+            align-content: $secondary-dir;
+        } @else {
+            align-items: $secondary-dir;
+        }
+    }
+    @if ( ($secondary-dir != flex-start) and $wrap == wrap ){
+        align-content: $secondary-dir;
+    }
+    @if ( $wrap != nowrap ){
+        flex-wrap: $wrap;
+    }
+    @if ( $adjust == adjust ){
+        margin: auto;
+        width: 100%;
+    }
+}
+    
+    /* Mixin for position of block */
+@mixin block-position($position: absolute, $top: none, $right: none, $bottom: none, $left: none, $zindex: none, $width: none, $height: none){
+    position: $position;
+    @if ( $top != none ){
+        top: $top;
+    }
+    @if ( $left != none ){
+        left: $left;
+    }
+    @if ( $bottom != none ){
+        bottom: $bottom;
+    }
+    @if ( $right != none ){
+        right: $right;
+    }
+    @if ( $zindex != none ){
+        z-index: $zindex;
+    }
+    @if ( $width != none ){
+        width: $width;
+    }
+    @if ( $height != none ){
+        height: $height;
+    }
+}
+
+    /* Mixin for css style of block from variable generation */
+@mixin elm-style($list, $map) {
+    $new-map: $map;
+    @each $key in $list {
+        $new-map: map-get($new-map, $key);
+    }
+    @each $key, $value in $new-map {
+        @if not ( is($value, 'map') ) {
+            #{$key}: $value;
+        } @else {
+            // @error "La valeur est : #{$value}";
+        }
+    }
+}
+    
+/* ========================================================================== */
+/* Specific Mixin for nav behaviour */
+    /* Mixin for link in the nav CSS style */
+@mixin nav-link-mixin($type){
+    color: scale-color($color-primary, $lightness: -50%);
+    font-size: $icon-size;
+    margin-top: $very-small;
+    @if ($type == icon){
+        margin-right: $very-small;
+    }
+}
+
+/* ========================================================================== */
+/* Specific Mixin for plat animation */
+@mixin ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* ========================================================================== */
+/* Specific Mixin for Loading spinner animation */
+    /* Mixin for Loading spinner in order to style the rigth or the left div border */
+@mixin div-border($side){
+    content: "";
+    position: absolute;
+    top: 0;
+    @if ($side == right) {
+        right: -0.2vw;
+        background-size: 0.22vw 1.44vw,
+                            0.22vw 1.44vw;
+        background-image: linear-gradient(80deg, rgba(255, 255, 255, 0.98) 0.2vw, transparent 0.2vw),
+                            linear-gradient(100deg, rgba(255, 255, 255, 0.98) 0.2vw, transparent 0.2vw);
+    }
+    @if ($side == left) {
+        left: -0.2vw;
+        background-position-y: -0.72vw;
+        background-size: 0.2vw 1.44vw,
+                            0.2vw 1.44vw;
+        background-image: linear-gradient(260deg, rgba(255, 255, 255, 0.98) 0.2vw, transparent 0.2vw), 
+                            linear-gradient(280deg, rgba(255, 255, 255, 0.98) 0.2vw, transparent 0.2vw);
+    }
+    width: 0.2vw;
+    height: 100vh;       
+};
+
+    /* Mixin for Loading spinner in order to style the rigth or the left div container for hand */
+@mixin div-hand($side) {
+    background-color: transparent;
+    position: absolute;
+    z-index: 1;
+    top: -3.36734693877551vw;
+    @if ($side == left) {
+        left: 20.4%;
+        animation: hands-down 2s cubic-bezier(.35,.35,.83,.67) both;
+        & > img{
+            @include img-hand(0ms)
+        }
+        
+    }
+    @if ($side == right) {
+        right: 20.4%;
+        animation: hands-down 2s 50ms cubic-bezier(0.83, 0.67, 0.35, 0.35) both;
+        & > img{
+            @include img-hand(50ms)
+        }
+    }
+}
+    
+    /* Mixin for Loading spinner in order to animate the rigth or the left  hand img */
+@mixin img-hand($delay) {
+    display: block;
+    width: 19.489795918367347vw;
+    filter: drop-shadow(0.7vw 0.7vw 0.7vw $color-shadow);
+    animation: hands-shake 10ms $delay alternate infinite both;
+}

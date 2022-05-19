@@ -3,7 +3,18 @@
     margin: map-get($h1, margin);
     padding: map-get($h1, padding);
     box-shadow: inset 0px -20px 10px -10px $color-primary;
+    &__img{
+        margin: 0 $small;
+        & img{
+            height: 100px;
+        }
+        &:nth-last-child(1){
+            animation: ombre-img-right 10s cubic-bezier(.3,.3,.7,.7) infinite;
+        }
+        animation: ombre-img-left 10s cubic-bezier(.3,.3,.7,.7) infinite;
+    }
     &--anim{
+        @include flex-display();
         opacity: 0;
         perspective: 100px;
         animation: perspective-texte 10s cubic-bezier(.3,.3,.7,.7) infinite;
@@ -19,61 +30,106 @@
 
 @keyframes perspective-texte {
     0% {
-        perspective-origin: 0% 0%;
+        perspective-origin: 60% 0%;
     }
     5% {
-        perspective-origin: 5% 0%;
+        perspective-origin: 59% 0%;
         opacity: 0;
     }
     10% {
-        perspective-origin: 10% 0%;
+        perspective-origin: 58% 0%;
         opacity: 1;
     }
     50% {
         perspective-origin: 50% 0%;
     }
     90% {
-        perspective-origin: 90% 0%;
+        perspective-origin: 42% 0%;
         opacity: 1;
     }
     95% {
-        perspective-origin: 95% 0%;
+        perspective-origin: 41% 0%;
         opacity: 0;
     }
     100% {
-        perspective-origin: 100% 0%;
+        perspective-origin: 40% 0%;
     }
 }
 
 @keyframes ombre-texte {
     0% {
-        text-shadow: -30px 0px 10px scale-color($color-primary, $lightness: 25%);
-        transform: rotate3d(1, 0, 0, 20deg);
+        text-shadow: 30px -10px 10px scale-color($color-primary, $lightness: 25%);
+        transform: rotate3d(1, 0.05, 0, 20deg);
     }
     5% {
-        text-shadow: -30px 0px 7px scale-color($color-primary, $lightness: 25%);
-        transform: rotate3d(1, 0, 0, 10deg);
+        text-shadow: 30px -10px 7px scale-color($color-primary, $lightness: 25%);
+        transform: rotate3d(1, 0.05, 0, 10deg);
     }
     50% {
-        text-shadow: 0px -10px 3px scale-color($color-primary, $lightness: 25%);
-        transform: rotate3d(1, 0, 0, 5deg);
+        text-shadow: 0px 0px 3px scale-color($color-primary, $lightness: 25%);
+        transform: rotate3d(1, 0, 0, 0deg);
     }
     95% {
-        text-shadow: 30px 0px 7px scale-color($color-primary, $lightness: 25%);
-        transform: rotate3d(1, 0, 0, 10deg);
+        text-shadow: -30px -10px 7px scale-color($color-primary, $lightness: 25%);
+        transform: rotate3d(1, -0.05, 0, 10deg);
     }
     100% {
-        text-shadow: 30px 0px 10px scale-color($color-primary, $lightness: 25%);
-        transform: rotate3d(1, 0, 0, 20deg);
+        text-shadow: -30px -10px 10px scale-color($color-primary, $lightness: 25%);
+        transform: rotate3d(1, -0.05, 0, 20deg);
     }
 }
 
+@keyframes ombre-img-left {
+    0% {
+        filter: drop-shadow(30px -10px 10px scale-color($color-primary, $lightness: 25%));
+        transform: rotate3d(1, 0, 0, 10deg);
+    }
+    5% {
+        filter: drop-shadow(30px -10px 7px scale-color($color-primary, $lightness: 25%));
+        transform: rotate3d(1, 0, 0, 5deg);
+    }
+    50% {
+        filter: drop-shadow(0px 0px 3px scale-color($color-primary, $lightness: 25%));
+        transform: rotate3d(1, 0, 0, 2.5deg);
+    }
+    95% {
+        filter: drop-shadow(-30px -10px 7px scale-color($color-primary, $lightness: 25%));
+        transform: rotate3d(1, 0, 0, 5deg);
+    }
+    100% {
+        filter: drop-shadow(-30px -10px 10px scale-color($color-primary, $lightness: 25%));
+        transform: rotate3d(1, 0, 0, 10deg);
+    }
+}
+
+@keyframes ombre-img-right {
+    0% {
+        filter: drop-shadow(30px 0px 10px scale-color($color-primary, $lightness: 25%));
+        transform: rotate3d(1, 18, 0, 10deg);
+    }
+    5% {
+        filter: drop-shadow(30px 0px 7px scale-color($color-primary, $lightness: 25%));
+        transform: rotate3d(1, 36, 0, 5deg);
+    }
+    50% {
+        filter: drop-shadow(0px -10px 3px scale-color($color-primary, $lightness: 25%));
+        transform: rotate3d(1, 72, 0, 2.5deg);
+    }
+    95% {
+        filter: drop-shadow(-30px 0px 7px scale-color($color-primary, $lightness: 25%));
+        transform: rotate3d(1, 36, 0, 5deg);
+    }
+    100% {
+        filter: drop-shadow(-30px 0px 10px scale-color($color-primary, $lightness: 25%));
+        transform: rotate3d(1, 18, 0, 10deg);
+    }
+}
 
 .telechargement{
     @include flex-display(column-reverse, flex-start, flex-start, nowrap, no-adjust);
     @include block-position(relative);
     background-color: $color-primary;
-    .telechargement-article{
+    &-article{
         @include flex-display(column, flex-start, flex-start, nowrap);
         @include block-position(relative, none, none, none, none, 1);
         padding-bottom: map-get($bottom-space, big);
@@ -82,8 +138,28 @@
             padding: map-get($h2 , padding);
             color: scale-color($color-primary, $lightness: -65%);
         }
+        .telechargement-container{
+            @include flex-display(row, space-between, space-between, wrap);
+            box-sizing: border-box;
+            padding: 0 $medium;
+            & > a{
+                box-sizing: border-box;
+                text-decoration: none; // No link default style
+                color: scale-color($color-primary, $lightness: -65%);
+                width: 100%;
+                margin-bottom: map-get($bottom-space, small);
+                border-radius: map-get($radius-size, medium);
+                box-shadow: 0 4px 7px 0px $color-shadow;
+                position: relative;
+                @each $key, $value in $fig-responsive{
+                    @include responsive($key){
+                        width: $value;
+                    }
+                }
+            }
+        }
     }
-    .telechargement-aside{
+    &-aside{
         @include flex-display(column, flex-start, flex-start, nowrap);
         @include block-position(relative, none, none, none, none, 1);
         margin-bottom: map-get($bottom-space, small);
@@ -91,23 +167,6 @@
             margin: map-get($h2 , margin);
             padding: map-get($h2 , padding);
             color: scale-color($color-primary, $lightness: -65%);
-        }
-    }
-    .etoile{
-        &--anim{
-            @include block-position(absolute, 0, 0, 0, 0, 0);
-            overflow: hidden;
-            @include flex-display(row, center, flex-start, nowrap, no-adjust);
-            & > img{
-                height: 750px;
-                display: inline-block;
-                opacity: 0;
-                animation: perspective-star 10s cubic-bezier(.3,.3,.7,.7) infinite;
-            }
-        }
-        &__background{
-            @include block-position(absolute, 0, 0, 0, 0, 1);
-            background: linear-gradient(transparent, white);
         }
     }
 }
@@ -133,23 +192,41 @@
     }
 }
 
-.telechargement-container{
-    @include flex-display(row, space-between, space-between, wrap);
-    box-sizing: border-box;
-    padding: 0 $medium;
-    & > a{
-        box-sizing: border-box;
-        text-decoration: none; // No link default style
-        color: scale-color($color-primary, $lightness: -65%);
-        width: 100%;
-        margin-bottom: map-get($bottom-space, small);
-        border-radius: map-get($radius-size, medium);
-        box-shadow: 0 4px 7px 0px $color-shadow;
-        position: relative;
-        @each $key, $value in $fig-responsive{
-            @include responsive($key){
-                width: $value;
+.lecture-section{
+    @include flex-display(row, flex-start, flex-start, nowrap, no-adjust);
+    @include block-position(relative);
+    background-color: $color-primary;
+    box-shadow: 0px -20px 10px 10px $color-primary;
+    .lecture-article{
+        @include flex-display(column, flex-start, flex-start, nowrap, no-adjust);
+        @include block-position(relative, none, none, none, none, 1);
+        padding-bottom: map-get($bottom-space, big);
+        width: 66%;
+        & > h2{
+            margin: map-get($h2 , margin);
+            padding: map-get($h2 , padding);
+            color: scale-color($color-primary, $lightness: -65%);
+        }
+        & .lecteur-area{
+            height: 100%;
+            @include flex-display();
+            & > video{
+                width: 90%;
+                max-height: 565px;
+                object-fit: scale-down;
+                display: none;
             }
+        }
+    }
+    .lecture-aside{
+        @include flex-display(column, flex-start, flex-start, nowrap, no-adjust);
+        @include block-position(relative, none, none, none, none, 1);
+        padding-bottom: map-get($bottom-space, big);
+        width: 33%;
+        & > h2{
+            margin: map-get($h2 , margin);
+            padding: map-get($h2 , padding);
+            color: scale-color($color-primary, $lightness: -65%);
         }
     }
 }

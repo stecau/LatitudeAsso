@@ -41,7 +41,7 @@ $very-small: 5px;
 $h1: (
     margin: 0,
     padding: ($big - 10px) ($big + 10px) ($big - 10px) ($big + 10px),
-    font-size: 180%
+    font-size: 230%
 );
 $h2: (
     margin: 0,
@@ -89,34 +89,7 @@ $footer-responsive: (
 
 /* ========================================================================== */
 /* Specific 'button' variables */
-$button: (
-    color: $color-texte-secondary,
-    background: linear-gradient(to top, $color-primary, $color-secondary),
-    padding: $small $medium,
-    margin: ($medium + 10px) auto ($big + 10px) auto,
-    border-radius: map-get($radius-size, big),
-    box-shadow: 0px 5px 10px 2px $color-shadow,
-    commande: (
-        margin: ($big - 10px) auto ($big + 20px) auto,
-        padding: $small $big,
-        appearance: none,
-        border: 0,
-        cursor: pointer
-    ),
-    hover: (
-        after: (
-            opacity: 1
-        )
-    ),
-    after: (
-        content: "",
-        background: linear-gradient(to top, lighten($color-primary, 5%), lighten($color-secondary, 5%)),
-        box-shadow: 0px 8px 10px 5px darken($color-shadow, 5%),
-        border-radius: map-get($radius-size, big),
-        opacity: 0,
-        transition: opacity 250ms
-    )
-);
+// No specific variables
 
 /* ========================================================================== */
 /* Specific 'fonctionnement' variables */

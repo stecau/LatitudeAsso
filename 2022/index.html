@@ -50,9 +50,15 @@
         <!-- Container for the title h1 with animation -->
         <div class="title">
             <div class="title--anim">
+                <div class="title__img title__img--anim">
+                    <img src="images/danseuse-width250px.png" alt="Image d'une danseuse" />
+                </div>
                 <h1> <!-- id for anchor to téléchargement area -->
                     Voyage parmi les étoiles
                 </h1>
+                <div class="title__img">
+                    <img src="images/danseuse-width250px.png" alt="Image d'une danseuse" />
+                </div>
             </div>
         </div>
         <!-- Creation of the 'Téléchargement' section -->
@@ -194,46 +200,95 @@
                     Visionnage du spectacle
                 </h2>
                 <!-- Lecteur container -->
-                <div class="danseuse">
-                    <img src="images/danseuse-width250px.png" alt="Image d'une danseuse" />
+                <div class="lecteur-area">
+                    <!-- Inital lecteur avec danseuse (afficher par défaut)-->
+                    <div class="danseuse" id="div_danseuse">
+                        <img src="images/danseuse-width250px.png" alt="Image d'une danseuse" />
+                    </div>
+                    <!-- Lecteur avec film sélectionner -->
+                    <!-- Video de Vendredi plan large -->
+                    <video controls controlslist="nodownload" class="vendredi-large" id="video_vendredi_large">
+                        <source src="/media/cc0-videos/flower.webm"
+                                type="video/webm">
+                        <source src="videos/Enregistrement de l’écran 2022-05-10 à 23.46.23.mov"
+                                type="video/mp4">
+                        Sorry, your browser doesn't support embedded videos.
+                    </video>
+                    <!-- Video de Vendredi plan large & serré -->
+                    <video controls controlslist="nodownload"  class="vendredi-serre" id="video_vendredi_serre">
+                        <source src="/media/cc0-videos/flower.webm"
+                                type="video/webm">
+                        <source src="videos/Enregistrement de l’écran 2022-05-10 à 23.46.23.mov"
+                                type="video/mp4">
+                        Sorry, your browser doesn't support embedded videos.
+                    </video>
+                    <!-- Video de Samedi plan large -->
+                    <video controls controlslist="nodownload"  class="samedi-large" id="video_samedi_large">
+                        <source src="/media/cc0-videos/flower.webm"
+                                type="video/webm">
+                        <source src="videos/Enregistrement de l’écran 2022-05-10 à 23.46.23.mov"
+                                type="video/mp4">
+                        Sorry, your browser doesn't support embedded videos.
+                    </video>
+                    <!-- Video de Samedi plan large  & serré -->
+                    <video controls controlslist="nodownload"  class="samedi-serre" id="video_samedi_serre">
+                        <source src="/media/cc0-videos/flower.webm"
+                                type="video/webm">
+                        <source src="videos/Enregistrement de l’écran 2022-05-10 à 23.46.23.mov"
+                                type="video/mp4">
+                        Sorry, your browser doesn't support embedded videos.
+                    </video>
                 </div>
-                <video controls class="spectacle__frame--display vendredi-large">
-                    <source src="/media/cc0-videos/flower.webm"
-                            type="video/webm">
-                    <source src="videos/Enregistrement de l’écran 2022-05-10 à 23.46.23.mov"
-                            type="video/mp4">
-                    Sorry, your browser doesn't support embedded videos.
-                </video>
-                <iframe class="spectacle__frame--display vendredi-serre"></iframe>
-                <iframe class="spectacle__frame--display samedi-large"></iframe>
-                <iframe class="spectacle__frame--display samedi-serre"></iframe> 
             </article>
 
             <!-- aside -->
             <aside class="lecture-aside">
+                <!-- aside title -->
+                <h2>
+                    Sélection du film
+                </h2>
                 <div class="lecture-container">
                     <!-- 1st button : Spectacle de Vendredi (tout le monde) -->
-                    <div class="spectacle__btn button">
-
+                    <div class="button button--spectacle" id="btn_vendredi_large">
+                        <i class="fas fa-play-circle"></i>
+                        <div>
+                            <span>- Vendredi -</span>
+                            <span class="smaller">plans larges</span>
+                        </div>
                     </div>
                     <!-- 2nd button : Spectacle de Vendredi -->
-                    <div class="spectacle__btn button">
-
+                    <div class="button button--spectacle" id="btn_vendredi_serre">
+                        <i class="fas fa-play-circle"></i>
+                        <div>
+                            <span>- Vendredi -</span>
+                            <span class="smaller">plans larges & serrés</span>
+                        </div>
                     </div>
                     <!-- 3rd button : Spectacle de Samedi (tout le monde) -->
-                    <div class="spectacle__btn button">
-
+                    <div class="button button--spectacle" id="btn_samedi_large">
+                        <i class="fas fa-play-circle"></i>
+                        <div>
+                            <span>- Samedi -</span>
+                            <span class="smaller">plans larges</span>
+                        </div>
                     </div>
                     <!-- 4th button : Spectacle de Samedi -->
-                    <div class="spectacle__btn button">
-
+                    <div class="button button--spectacle" id="btn_samedi_serre">
+                        <i class="fas fa-play-circle"></i>
+                        <div>
+                            <span>- Samedi -</span>
+                            <span class="smaller">plans larges & serrés</span>
+                        </div>
                     </div>
                 </div>
             </aside>
+            <!-- Container for the background with animated stars-->
+            <div class="etoile--anim">
+                <img src="images/etoiles-bis.png" alt="ciel d'étoiles" />
+                <div class="etoile__background"></div>
+            </div>
         </section>
-        <div class="etoile--anim">
-            <img src="images/etoiles-bis.png" alt="ciel d'étoiles" />
-        </div>
+
 
         <!-- Creation of the Footer -->
         <footer class="footer" id="contact">
@@ -266,5 +321,71 @@
             </div>
         </footer>
     </div>
+
+    <!-- Script pour affichage film adéquat dans zone de Visionnage -->
+    <script>
+        let btn_vendredi_large = document.getElementById("btn_vendredi_large");
+        let btn_vendredi_serre = document.getElementById("btn_vendredi_serre");
+        let btn_samedi_large = document.getElementById("btn_samedi_large");
+        let btn_samedi_serre = document.getElementById("btn_samedi_serre");
+        let video_vendredi_large = document.getElementById("video_vendredi_large");
+        let video_vendredi_serre = document.getElementById("video_vendredi_serre");
+        let video_samedi_large = document.getElementById("video_samedi_large");
+        let video_samedi_serre = document.getElementById("video_samedi_serre");
+        let div_danseuse = document.getElementById("div_danseuse");
+
+        btn_vendredi_large.addEventListener("click", () => {
+            video_vendredi_serre.style.display = "none";
+            video_samedi_large.style.display = "none";
+            video_samedi_serre.style.display = "none";
+            if(getComputedStyle(video_vendredi_large).display != "none"){
+                video_vendredi_large.style.display = "none";
+                div_danseuse.style.display = "block"
+            } else {
+                video_vendredi_large.style.display = "block";
+                div_danseuse.style.display = "none"
+            }
+        })
+
+        btn_vendredi_serre.addEventListener("click", () => {
+            video_vendredi_large.style.display = "none";
+            video_samedi_large.style.display = "none";
+            video_samedi_serre.style.display = "none";
+            if(getComputedStyle(video_vendredi_serre).display != "none"){
+                video_vendredi_serre.style.display = "none";
+                div_danseuse.style.display = "block"
+            } else {
+                video_vendredi_serre.style.display = "block";
+                div_danseuse.style.display = "none"
+            }
+        })
+
+        btn_samedi_large.addEventListener("click", () => {
+            video_vendredi_large.style.display = "none";
+            video_vendredi_serre.style.display = "none";
+            video_samedi_serre.style.display = "none";
+            if(getComputedStyle(video_samedi_large).display != "none"){
+                video_samedi_large.style.display = "none";
+                div_danseuse.style.display = "block"
+            } else {
+                video_samedi_large.style.display = "block";
+                div_danseuse.style.display = "none"
+            }
+        })
+
+        btn_samedi_serre.addEventListener("click", () => {
+            video_vendredi_large.style.display = "none";
+            video_vendredi_serre.style.display = "none";
+            video_samedi_large.style.display = "none";
+            if(getComputedStyle(video_samedi_serre).display != "none"){
+                video_samedi_serre.style.display = "none";
+                div_danseuse.style.display = "block"
+            } else {
+                video_samedi_serre.style.display = "block";
+                div_danseuse.style.display = "none"
+            }
+        })
+    </script>
+
 </body>
 </html>

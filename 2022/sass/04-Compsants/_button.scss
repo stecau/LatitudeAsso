@@ -1,16 +1,45 @@
 .button{
-    @include elm-style( (), $button);
-    &--commande{
-        @include elm-style( (commande), $button);
-    }
+    color: scale-color($color-primary, $lightness: -65%);
+    background: linear-gradient(to top, $color-primary, $color-secondary);
+    padding: $small $medium;
+    margin: ($medium + 10px) auto ($big + 10px) auto;
+    border-radius: map-get($radius-size, big);
+    box-shadow: 0px 8px scale-color($color-primary, $lightness: -25%);
+    cursor: pointer;
     @include block-position(relative, none, none, none, none, 1);
+    &--spectacle{
+        @include flex-display(row, flex-start, center, nowrap, no-adjust);
+        width: 180px;
+        & > i{
+            font-size: $icon-size + 5px;
+        }
+        & > div{
+            @include flex-display(column, flex-start, center, nowrap, adjust);
+            & .smaller{
+                font-size: $icon-size - 5px;
+            }
+        }
+    }
     &:hover {
         &::after {
-            @include elm-style( (hover, after), $button);
+            opacity: 1;
+        }
+        &:active {
+            box-shadow: 0 4px scale-color($color-primary, $lightness: -25%);
+            transform: translateY(4px);
+            transition: all 300ms;
+            &::after {
+                opacity: 0;
+            }
         }
     }
     &::after {
         @include block-position(absolute, 0, 0, 0, 0, -1);
-        @include elm-style( (after), $button);
+        content: "";
+        background: linear-gradient(to top, scale-color($color-primary, $lightness: -5%), scale-color($color-secondary, $lightness: -5%));
+        box-shadow: 0px 8px scale-color($color-primary, $lightness: -45%);
+        border-radius: map-get($radius-size, big);
+        opacity: 0;
+        transition: opacity 150ms;
     }
 }

@@ -29,8 +29,10 @@
 /* ========================================================================== */
 /* Components for css INDEPENDANT blocks BEM (button,...) */
     /* Start import */
-    /* BEM for ohmyfood introduction*/
+    /* BEM for download introduction*/
 @import "./04-Compsants/fonctionnement";
+    /* BEM for stars animation*/
+@import "./04-Compsants/etoile";
     /* BEM for restaurant preview (figure structure) */
 @import "./04-Compsants/resto-fig";
     /* BEM for plat presentation in menu */

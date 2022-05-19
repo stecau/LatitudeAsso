@@ -1,0 +1,17 @@
+.etoile{
+    &--anim{
+        @include block-position(absolute, 0, 0, 0, 0, 0);
+        overflow: hidden;
+        @include flex-display(row, center, flex-start, nowrap, no-adjust);
+        & > img{
+            height: 750px;
+            display: inline-block;
+            opacity: 0;
+            animation: perspective-star 10s cubic-bezier(.3,.3,.7,.7) infinite;
+        }
+    }
+    &__background{
+        @include block-position(absolute, 0, 0, 0, 0, 1);
+        background: linear-gradient(transparent, white);
+    }
+}

@@ -5,13 +5,25 @@
     box-shadow: inset 0px -20px 10px -10px $color-primary;
     &__img{
         margin: 0 $small;
+        @include block-position(relative, none, none, none, none, -1);
         & img{
             height: 100px;
         }
         &:nth-last-child(1){
-            animation: ombre-img-right 10s cubic-bezier(.3,.3,.7,.7) infinite;
+            transform: rotateY(180deg);
+            // animation: ombre-img-right 10s cubic-bezier(.3,.3,.7,.7) infinite;
         }
-        animation: ombre-img-left 10s cubic-bezier(.3,.3,.7,.7) infinite;
+        &--anim1{
+            @include block-position(absolute, 0, 0, 0, 0, -1);
+            transform-origin: 90% 100%;
+            animation: ombre-texte1 10s cubic-bezier(.3,.3,.7,.7) infinite;
+        }
+        &--anim2{
+            @include block-position(absolute, 0, 0, 0, 0, -1);
+            transform-origin: 90% 100%;
+            animation: ombre-texte2 10s cubic-bezier(.3,.3,.7,.7) infinite;
+        }
+        // animation: ombre-img-left 10s cubic-bezier(.3,.3,.7,.7) infinite;
     }
     &--anim{
         @include flex-display();
@@ -22,8 +34,15 @@
             font-size: map-get($h1, font-size);
             text-align: center;
             color: scale-color($color-primary, $lightness: -50%);
-            transform: rotate3d(1, 0, 0, 10deg);
-            animation: ombre-texte 10s cubic-bezier(.3,.3,.7,.7) infinite;
+            @include block-position(relative);
+            &::after{
+                content: "Voyage parmi les étoiles";
+                @include block-position(absolute, 0, 0, 0, 0, -1);
+                color: scale-color($color-primary, $lightness: 25%);
+                transform-origin: 50% 75%;
+                animation: ombre-texte1 10s cubic-bezier(.3,.3,.7,.7) infinite;
+            }
+
         }
     }
 }
@@ -56,72 +75,39 @@
     }
 }
 
-@keyframes ombre-texte {
+@keyframes ombre-texte1 {
     0% {
-        text-shadow: 30px -10px 10px scale-color($color-primary, $lightness: 25%);
-        transform: rotate3d(1, 0.05, 0, 20deg);
+        transform: skewX(80deg) rotate3d(1, 0, 0, 70deg);
     }
     5% {
-        text-shadow: 30px -10px 7px scale-color($color-primary, $lightness: 25%);
-        transform: rotate3d(1, 0.05, 0, 10deg);
+        transform: skewX(70deg) rotate3d(1, 0, 0, 60deg);
     }
     50% {
-        text-shadow: 0px 0px 3px scale-color($color-primary, $lightness: 25%);
-        transform: rotate3d(1, 0, 0, 0deg);
+        transform: skewX(0deg) rotate3d(1, 0, 0, 0deg);
     }
     95% {
-        text-shadow: -30px -10px 7px scale-color($color-primary, $lightness: 25%);
-        transform: rotate3d(1, -0.05, 0, 10deg);
+        transform: skewX(-70deg) rotate3d(1, 0, 0, 60deg);
     }
     100% {
-        text-shadow: -30px -10px 10px scale-color($color-primary, $lightness: 25%);
-        transform: rotate3d(1, -0.05, 0, 20deg);
+        transform: skewX(-80deg) rotate3d(1, 0, 0, 70deg);
     }
 }
 
-@keyframes ombre-img-left {
+@keyframes ombre-texte2 {
     0% {
-        filter: drop-shadow(30px -10px 10px scale-color($color-primary, $lightness: 25%));
-        transform: rotate3d(1, 0, 0, 10deg);
+        transform: skewX(-80deg) rotate3d(1, 0, 0, 70deg);
     }
     5% {
-        filter: drop-shadow(30px -10px 7px scale-color($color-primary, $lightness: 25%));
-        transform: rotate3d(1, 0, 0, 5deg);
+        transform: skewX(-70deg) rotate3d(1, 0, 0, 60deg);
     }
     50% {
-        filter: drop-shadow(0px 0px 3px scale-color($color-primary, $lightness: 25%));
-        transform: rotate3d(1, 0, 0, 2.5deg);
+        transform: skewX(0deg) rotate3d(1, 0, 0, 0deg);
     }
     95% {
-        filter: drop-shadow(-30px -10px 7px scale-color($color-primary, $lightness: 25%));
-        transform: rotate3d(1, 0, 0, 5deg);
+        transform: skewX(70deg) rotate3d(1, 0, 0, 60deg);
     }
     100% {
-        filter: drop-shadow(-30px -10px 10px scale-color($color-primary, $lightness: 25%));
-        transform: rotate3d(1, 0, 0, 10deg);
-    }
-}
-
-@keyframes ombre-img-right {
-    0% {
-        filter: drop-shadow(30px 0px 10px scale-color($color-primary, $lightness: 25%));
-        transform: rotate3d(1, 18, 0, 10deg);
-    }
-    5% {
-        filter: drop-shadow(30px 0px 7px scale-color($color-primary, $lightness: 25%));
-        transform: rotate3d(1, 36, 0, 5deg);
-    }
-    50% {
-        filter: drop-shadow(0px -10px 3px scale-color($color-primary, $lightness: 25%));
-        transform: rotate3d(1, 72, 0, 2.5deg);
-    }
-    95% {
-        filter: drop-shadow(-30px 0px 7px scale-color($color-primary, $lightness: 25%));
-        transform: rotate3d(1, 36, 0, 5deg);
-    }
-    100% {
-        filter: drop-shadow(-30px 0px 10px scale-color($color-primary, $lightness: 25%));
-        transform: rotate3d(1, 18, 0, 10deg);
+        transform: skewX(80deg) rotate3d(1, 0, 0, 70deg);
     }
 }
 

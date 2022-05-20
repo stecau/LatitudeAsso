@@ -1,0 +1,237 @@
+.scene{
+    width: 95%;
+    @include block-position(relative);
+    overflow: hidden;
+    &__decor{
+        width:100%;
+    }
+    &__rideau-fixe{
+        width:100%;
+        @include block-position(absolute, 0, 0, 0, 0, 3);
+    }
+    &__rideau-left{
+        width:100%;
+        @include block-position(absolute, 0, 0, 0, 0, -1);
+        transform: translateX(0);
+        transition: transform 1s ease-in-out;
+    }
+    &__rideau-right{
+        width:100%;
+        @include block-position(absolute, 0, 0, 0, 0, -1);
+        transform: translateX(0);
+        transition: transform 1s ease-in-out;
+    }
+    & > .danseuse{
+        @include block-position(absolute, 0, 0, 33%, 0, 2);
+        transform-style: preserve-3d;
+        perspective: 400px;
+        // perspective-origin: 200% 0%;
+        // perspective-origin: 100% 0%;
+        // perspective-origin: center 0%;
+        // perspective-origin: 0% 0%;
+        // perspective-origin: -100% 0%;
+        animation: perspective-ombre 2.5s cubic-bezier(1,1,1,1) infinite both;
+        .face{
+            display: block;
+            width: 100%;
+            height: 100%;
+            border: none;
+            transform-style: preserve-3d;
+            & img:nth-child(1){
+                display: block;
+                margin: auto;
+                width: 20%;
+                @include block-position(absolute, 0, 0, 0, 0, 1);
+                transform: translate3d(200%, 35%, -50px);
+                // transform: translate3d(60%, 35%, -70px);
+                // transform: translate3d(-40%, 35%, -90px);
+                // transform: translate3d(-65%, 35%, -110px);
+                // transform: translate3d(-85%, 35%, -130px);
+                animation: saut-danseuse 2.5s cubic-bezier(1,1,1,1) infinite both;
+            }
+            & img:nth-child(2){
+                display: block;
+                margin: auto;
+                width: 20%;
+                filter: drop-shadow(0 0 5px #000000);
+                @include block-position(absolute, 0, 0, 0, 0, 0);
+                transform-origin: 50% 99%;
+                transform: translate3d(200%, 35%, -50px) rotateX(90deg);
+                transform: translate3d(200%, 35%, -50px) rotateX(90deg);
+                animation: saut-ombre 2.5s cubic-bezier(1,1,1,1) infinite both;
+            }
+        }
+        .front {
+            background: rgba(0, 0, 0, 0.3);
+            // transform: translateZ(100px);
+        }
+    }
+    &__fond{
+        @include block-position(absolute, 0, 8.5%, 0, 8.5%, -2);
+        height: 54%;
+        background-color: #000000;
+        @include flex-display(row, center, flex-start, nowrap, no-adjust);
+        &--ecran{
+            margin-top: $very-small;
+            height: 96%;
+            width: 80%;
+            background-color: #ffffff;
+            @include flex-display(row, center, center, nowrap, no-adjust);
+            & > video{
+                height: 95%;
+                max-width: 95%;
+                min-width: 60%;
+                object-fit: scale-down;
+                background-color: #000000;
+                display: none;
+            }
+            
+        }
+    }
+    & > .container{
+        display: none;
+        @include block-position(absolute, 100px, none, none, 250px, 3);
+        width: 200px;
+        height: 200px;
+        margin: 24px;
+        border: none;
+        .cube {
+            width: 100%;
+            height: 100%;
+            backface-visibility: visible;
+            transform-style: preserve-3d;
+            animation: perspective-cube 2.5s cubic-bezier(.3,.3,.7,.7) infinite;
+            & > .face{
+                display: block;
+                position: absolute;
+                width: 200px;
+                height: 200px;
+                border: none;
+                line-height: 200px;
+                font-family: sans-serif;
+                font-size: 120px;
+                color: white;
+                text-align: center;
+                transform-style: preserve-3d;
+                & img:nth-child(1){
+                    display: block;
+                    margin: auto;
+                    @include block-position(absolute, 0, 0, 0, 0, 1);
+                    transform: translate3d(0, 0, -50px);
+                    animation: saut-danseuse 2.5s cubic-bezier(.3,.3,.7,.7) infinite;
+                }
+                & img:nth-child(2){
+                    display: block;
+                    margin: auto;
+                    @include block-position(absolute, 0, 0, 0, 0, 0);
+                    transform-origin: 50% 100%;
+                    transform: translate3d(0, 0, -50px) rotateX(90deg);
+                    animation: saut-ombre 2.5s cubic-bezier(.3,.3,.7,.7) infinite;
+                }
+            }
+            .front {
+                background: rgba(0, 0, 0, 0.3);
+                transform: translateZ(100px);
+            }
+            .back {
+                background: rgba(0, 255, 0, 1);
+                color: black;
+                transform: rotateY(180deg) translateZ(100px);
+            }
+            .right {
+                background: rgba(196, 0, 0, 0.7);
+                transform: rotateY(90deg) translateZ(100px);
+            }
+            .left {
+                background: rgba(0, 0, 196, 0.7);
+                transform: rotateY(-90deg) translateZ(100px);
+            }
+            .top {
+                background: rgba(196, 196, 0, 0.7);
+                transform: rotateX(90deg) translateZ(100px);
+            }
+            .bottom {
+                background: rgba(196, 0, 196, 0.7);
+                transform: rotateX(-90deg) translateZ(100px);
+            }
+        }
+    }
+}
+
+@keyframes saut-danseuse{ // Pour largeur écran 996 soit conteneur scene = 625px
+    0%{
+        transform: translate3d(200%, 35%, -50px);
+    }
+    35%{
+        transform: translate3d(60%, 35%, -70px);
+    }
+    60%{
+        transform: translate3d(-40%, 5%, -90px);
+    }
+    75%{
+        transform: translate3d(-65%, 35%, -110px);
+    }
+    100%{
+        transform: translate3d(-85%, 35%, -130px);
+    }
+}
+
+@keyframes saut-ombre{ // Pour largeur écran 996 soit conteneur scene = 625px
+    0%{
+        transform: translate3d(200%, 35%, -50px) rotateX(90deg);
+    }
+    35%{
+        transform: translate3d(60%, 35%, -70px) rotateX(90deg);
+    }
+    60%{
+        transform: translate3d(-40%, 35%, -150px) rotateX(75deg);
+    }
+    75%{
+        transform: translate3d(-65%, 35%, -110px) rotateX(90deg);
+    }
+    100%{
+        transform: translate3d(-85%, 35%, -130px) rotateX(90deg);
+    }
+}
+
+@keyframes perspective-ombre{ // Pour largeur écran 996 soit conteneur scene = 625px
+    0%{
+        perspective-origin: 200% 0%;
+    }
+    35%{
+        perspective-origin: 100% 0%;
+    }
+    60%{
+        perspective-origin: center 0%;
+    }
+    75%{
+        perspective-origin: 0% 0%;
+    }
+    100%{
+        perspective-origin: -100% 0%;
+    }
+}
+
+@keyframes perspective-cube{ // Pour largeur écran 996 soit conteneur scene = 625px
+    0%{
+        perspective: 400px;
+        perspective-origin: 200% 0%;
+    }
+    25%{
+        perspective: 400px;
+        perspective-origin: 100% 0%;
+    }
+    50%{
+        perspective: 400px;
+        perspective-origin: 25% 25%;
+    }
+    75%{
+        perspective: 400px;
+        perspective-origin: -50% 0%;
+    }
+    100%{
+        perspective: 400px;
+        perspective-origin: -100% 0%;
+    }
+}
+

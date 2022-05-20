@@ -11,19 +11,17 @@
         }
         &:nth-last-child(1){
             transform: rotateY(180deg);
-            // animation: ombre-img-right 10s cubic-bezier(.3,.3,.7,.7) infinite;
         }
         &--anim1{
             @include block-position(absolute, 0, 0, 0, 0, -1);
-            transform-origin: 90% 100%;
+            transform-origin: 50% 98%;
             animation: ombre-texte1 10s cubic-bezier(.3,.3,.7,.7) infinite;
         }
         &--anim2{
             @include block-position(absolute, 0, 0, 0, 0, -1);
-            transform-origin: 90% 100%;
+            transform-origin: 50% 98%;
             animation: ombre-texte2 10s cubic-bezier(.3,.3,.7,.7) infinite;
         }
-        // animation: ombre-img-left 10s cubic-bezier(.3,.3,.7,.7) infinite;
     }
     &--anim{
         @include flex-display();
@@ -157,32 +155,10 @@
     }
 }
 
-@keyframes perspective-star {
-    0% {
-        transform: translate3d(-50px, -80px, 0) rotateZ(-5deg);
-    }
-    5% {
-        opacity: 0;
-    }
-    10% {
-        opacity: 1;
-    }
-    90% {
-        opacity: 1;
-    }
-    95% {
-        opacity: 0;
-    }
-    100% {
-        transform: translate3d(50px, -60px, 0) rotateZ(5deg);
-    }
-}
-
 .lecture-section{
     @include flex-display(row, flex-start, flex-start, nowrap, no-adjust);
     @include block-position(relative);
     background-color: $color-primary;
-    box-shadow: 0px -20px 10px 10px $color-primary;
     .lecture-article{
         @include flex-display(column, flex-start, flex-start, nowrap, no-adjust);
         @include block-position(relative, none, none, none, none, 1);
@@ -196,12 +172,6 @@
         & .lecteur-area{
             height: 100%;
             @include flex-display();
-            & > video{
-                width: 90%;
-                max-height: 565px;
-                object-fit: scale-down;
-                display: none;
-            }
         }
     }
     .lecture-aside{

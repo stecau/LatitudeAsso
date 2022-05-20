@@ -13,5 +13,29 @@
     &__background{
         @include block-position(absolute, 0, 0, 0, 0, 1);
         background: linear-gradient(transparent, white);
+        &--shadow{
+            box-shadow: inset 0px -20px 10px -10px $color-primary;
+        }
+    }
+}
+
+@keyframes perspective-star {
+    0% {
+        transform: translate3d(-50px, -80px, 0) rotateZ(-5deg);
+    }
+    5% {
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    95% {
+        opacity: 0;
+    }
+    100% {
+        transform: translate3d(50px, -60px, 0) rotateZ(5deg);
     }
 }

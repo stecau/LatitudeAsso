@@ -53,7 +53,7 @@
                 <div class="title__img">
                     <img src="images/danseuse-width250px.png" alt="Image d'une danseuse" />
                     <div class="title__img--anim1">
-                        <img src="images/danseuse-width250px.png" alt="Image d'une danseuse" />
+                        <img src="images/danseuse_ombre-width250px.png" alt="Image d'une danseuse" />
                     </div>
                 </div>
                 <h1> <!-- id for anchor to téléchargement area -->
@@ -62,7 +62,7 @@
                 <div class="title__img">
                     <img src="images/danseuse-width250px.png" alt="Image d'une danseuse" />
                     <div class="title__img--anim2">
-                        <img src="images/danseuse-width250px.png" alt="Image d'une danseuse" />
+                        <img src="images/danseuse_ombre-width250px.png" alt="Image d'une danseuse" />
                     </div>
                 </div>
             </div>
@@ -193,7 +193,7 @@
             <!-- Container for the background with animated stars-->
             <div class="etoile--anim">
                 <img src="images/etoiles-bis.png" alt="ciel d'étoiles" />
-                <div class="etoile__background"></div>
+                <div class="etoile__background etoile__background--shadow"></div>
             </div>
         </section>
 
@@ -208,42 +208,69 @@
                 <!-- Lecteur container -->
                 <div class="lecteur-area">
                     <!-- Inital lecteur avec danseuse (afficher par défaut)-->
-                    <div class="danseuse" id="div_danseuse">
-                        <img src="images/danseuse-width250px.png" alt="Image d'une danseuse" />
-                    </div>
-                    <!-- Lecteur avec film sélectionner -->
-                    <!-- Video de Vendredi plan large -->
-                    <video controls controlslist="nodownload" class="vendredi-large" id="video_vendredi_large">
-                        <source src="/media/cc0-videos/flower.webm"
-                                type="video/webm">
-                        <source src="videos/Enregistrement de l’écran 2022-05-10 à 23.46.23.mov"
-                                type="video/mp4">
-                        Sorry, your browser doesn't support embedded videos.
-                    </video>
-                    <!-- Video de Vendredi plan large & serré -->
-                    <video controls controlslist="nodownload"  class="vendredi-serre" id="video_vendredi_serre">
-                        <source src="/media/cc0-videos/flower.webm"
-                                type="video/webm">
-                        <source src="videos/Enregistrement de l’écran 2022-05-10 à 23.46.23.mov"
-                                type="video/mp4">
-                        Sorry, your browser doesn't support embedded videos.
-                    </video>
-                    <!-- Video de Samedi plan large -->
-                    <video controls controlslist="nodownload"  class="samedi-large" id="video_samedi_large">
-                        <source src="/media/cc0-videos/flower.webm"
-                                type="video/webm">
-                        <source src="videos/Enregistrement de l’écran 2022-05-10 à 23.46.23.mov"
-                                type="video/mp4">
-                        Sorry, your browser doesn't support embedded videos.
-                    </video>
-                    <!-- Video de Samedi plan large  & serré -->
-                    <video controls controlslist="nodownload"  class="samedi-serre" id="video_samedi_serre">
-                        <source src="/media/cc0-videos/flower.webm"
-                                type="video/webm">
-                        <source src="videos/Enregistrement de l’écran 2022-05-10 à 23.46.23.mov"
-                                type="video/mp4">
-                        Sorry, your browser doesn't support embedded videos.
-                    </video>
+                        <div class="scene">
+                            <img class="scene__decor" src="images/scene-width1500.png" alt="Image de la scène" />
+                            <img class="scene__rideau-fixe" src="images/scene-rideau-fixe-width1500.png" alt="Image du rideau de scéne gauche" />
+                            <img id="rideau-left" class="scene__rideau-left" src="images/scene-rideau-left-width1500.png" alt="Image du rideau de scéne gauche" />
+                            <img id="rideau-right" class="scene__rideau-right" src="images/scene-rideau-right-width1500.png" alt="Image du rideau de scéne droite" />
+                            <div class="danseuse cube" id="div_danseuse">
+                                <div class="face">
+                                    <img src="images/danseuse-width250px.png" alt="Image de la danseuse" />
+                                    <img src="images/danseuse_ombre-width250px.png" alt="Image de l'ombre de la danseuse" />
+                                </div>
+                            </div>
+                            <div class="container">
+                                <div class="cube po200200">
+                                    <div class="face front">
+                                        <img src="images/danseuse-width250px.png" alt="Image de la danseuse" height="120px" />
+                                        <img src="images/danseuse_ombre-width250px.png" alt="Image de l'ombre de la danseuse" height="120px" />
+                                    </div>
+                                    <div class="face back">2</div>
+                                    <div class="face right">3</div>
+                                    <div class="face left">4</div>
+                                    <div class="face top">5</div>
+                                    <div class="face bottom">6</div>
+                                </div>
+                            </div>
+                            <div class="scene__fond" id="ecran">
+                                <div class="scene__fond--ecran">
+                                    <!-- Lecteur avec film sélectionner -->
+                                    <!-- Video de Vendredi plan large -->
+                                    <video controls controlslist="nodownload" class="vendredi-large" id="video_vendredi_large">
+                                        <source src="/media/cc0-videos/flower.webm"
+                                                type="video/webm">
+                                        <source src="videos/Enregistrement de l’écran 2022-05-10 à 23.46.23.mov"
+                                                type="video/mp4">
+                                        Sorry, your browser doesn't support embedded videos.
+                                    </video>
+                                    <!-- Video de Vendredi plan large & serré -->
+                                    <video controls controlslist="nodownload"  class="vendredi-serre" id="video_vendredi_serre">
+                                        <source src="/media/cc0-videos/flower.webm"
+                                                type="video/webm">
+                                        <source src="videos/Enregistrement de l’écran 2022-05-10 à 23.46.23.mov"
+                                                type="video/mp4">
+                                        Sorry, your browser doesn't support embedded videos.
+                                    </video>
+                                    <!-- Video de Samedi plan large -->
+                                    <video controls controlslist="nodownload"  class="samedi-large" id="video_samedi_large">
+                                        <source src="/media/cc0-videos/flower.webm"
+                                                type="video/webm">
+                                        <source src="videos/Enregistrement de l’écran 2022-05-10 à 23.46.23.mov"
+                                                type="video/mp4">
+                                        Sorry, your browser doesn't support embedded videos.
+                                    </video>
+                                    <!-- Video de Samedi plan large  & serré -->
+                                    <video controls controlslist="nodownload"  class="samedi-serre" id="video_samedi_serre">
+                                        <source src="/media/cc0-videos/flower.webm"
+                                                type="video/webm">
+                                        <source src="videos/Enregistrement de l’écran 2022-05-10 à 23.46.23.mov"
+                                                type="video/mp4">
+                                        Sorry, your browser doesn't support embedded videos.
+                                    </video>
+                                </div>
+                            </div>
+                            <div class="scene__plafond"></div>
+                        </div>
                 </div>
             </article>
 
@@ -339,6 +366,9 @@
         let video_samedi_large = document.getElementById("video_samedi_large");
         let video_samedi_serre = document.getElementById("video_samedi_serre");
         let div_danseuse = document.getElementById("div_danseuse");
+        let ecran = document.getElementById("ecran");
+        let rideau_left = document.getElementById("rideau-left");
+        let rideau_right = document.getElementById("rideau-right");
 
         btn_vendredi_large.addEventListener("click", () => {
             video_vendredi_serre.style.display = "none";
@@ -347,9 +377,17 @@
             if(getComputedStyle(video_vendredi_large).display != "none"){
                 video_vendredi_large.style.display = "none";
                 div_danseuse.style.display = "block"
+                ecran.style.zIndex = "-2"
+                ecran.style.transition = "z-index 100ms"
+                rideau_left.style.transform = "translateX(0)"
+                rideau_right.style.transform = "translateX(0)"
             } else {
                 video_vendredi_large.style.display = "block";
                 div_danseuse.style.display = "none"
+                ecran.style.zIndex = "4"
+                ecran.style.transition = "z-index 100ms 1s"
+                rideau_left.style.transform = "translateX(-42%)"
+                rideau_right.style.transform = "translateX(42%)"
             }
         })
 
@@ -360,9 +398,17 @@
             if(getComputedStyle(video_vendredi_serre).display != "none"){
                 video_vendredi_serre.style.display = "none";
                 div_danseuse.style.display = "block"
+                ecran.style.zIndex = "-2"
+                ecran.style.transition = "z-index 100ms"
+                rideau_left.style.transform = "translateX(0)"
+                rideau_right.style.transform = "translateX(0)"
             } else {
                 video_vendredi_serre.style.display = "block";
                 div_danseuse.style.display = "none"
+                ecran.style.zIndex = "4"
+                ecran.style.transition = "z-index 100ms 1s"
+                rideau_left.style.transform = "translateX(-42%)"
+                rideau_right.style.transform = "translateX(42%)"
             }
         })
 
@@ -373,9 +419,17 @@
             if(getComputedStyle(video_samedi_large).display != "none"){
                 video_samedi_large.style.display = "none";
                 div_danseuse.style.display = "block"
+                ecran.style.zIndex = "-2"
+                ecran.style.transition = "z-index 100ms"
+                rideau_left.style.transform = "translateX(0)"
+                rideau_right.style.transform = "translateX(0)"
             } else {
                 video_samedi_large.style.display = "block";
                 div_danseuse.style.display = "none"
+                ecran.style.zIndex = "4"
+                ecran.style.transition = "z-index 100ms 1s"
+                rideau_left.style.transform = "translateX(-42%)"
+                rideau_right.style.transform = "translateX(42%)"
             }
         })
 
@@ -386,9 +440,17 @@
             if(getComputedStyle(video_samedi_serre).display != "none"){
                 video_samedi_serre.style.display = "none";
                 div_danseuse.style.display = "block"
+                ecran.style.zIndex = "-2"
+                ecran.style.transition = "z-index 100ms"
+                rideau_left.style.transform = "translateX(0)"
+                rideau_right.style.transform = "translateX(0)"
             } else {
                 video_samedi_serre.style.display = "block";
                 div_danseuse.style.display = "none"
+                ecran.style.zIndex = "4"
+                ecran.style.transition = "z-index 100ms 1s"
+                rideau_left.style.transform = "translateX(-42%)"
+                rideau_right.style.transform = "translateX(42%)"
             }
         })
     </script>

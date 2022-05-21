@@ -79,7 +79,7 @@
                 <!-- Spectacle container -->
                 <div class="telechargement-container">
                     <!-- 1st card : Spectacle de Vendredi (plans larges) -->
-                    <a href="" download="videos/">
+                    <a href="videos/film_presentation_de_saison_21_22_new.mp4" download="videos/film_presentation_de_saison_21_22_new.mp4">
                         <figure class="telechargement-fig">
                             <!-- image -->
                             <img src="images/jay-wennington-N_Y88TWmGwA-unsplash.jpg" alt="Photo Spectacle de Vendredi (plans larges)" />
@@ -100,7 +100,7 @@
                         </figure>
                     </a>
                     <!-- 2nd card : Spectacle de Vendredi (plans serrés) -->
-                    <a href="" download="videos/">
+                    <a href="videos/Enregistrement_ecran_2022-05-10_a_23.46.23.mov" download="videos/Enregistrement_ecran_2022-05-10_a_23.46.23.mov">
                         <figure class="telechargement-fig">
                             <!-- image -->
                             <img src="images/jay-wennington-N_Y88TWmGwA-unsplash.jpg" alt="Photo Spectacle de Vendredi (plans serrés)" />
@@ -121,7 +121,7 @@
                         </figure>
                     </a>
                     <!-- 3rd card : Spectacle de Samedi (plans larges) -->
-                    <a href="" download="videos/">
+                    <a href="videos/Voyage_Intro_2.mp4" download="videos/Voyage_Intro_2.mp4">
                         <figure class="telechargement-fig">
                             <!-- image -->
                             <img src="images/jay-wennington-N_Y88TWmGwA-unsplash.jpg" alt="Photo Spectacle de Samedi (plans larges)" />
@@ -142,7 +142,7 @@
                         </figure>
                     </a>
                     <!-- 4th card : Spectacle de Samedi (plans serrés) -->
-                    <a href="" download="videos/">
+                    <a href="videos/Voyage_VisagesChoregraphes.mp4" download="videos/Voyage_VisagesChorgraphes.mp4">
                         <figure class="telechargement-fig">
                             <!-- image -->
                             <img src="images/jay-wennington-N_Y88TWmGwA-unsplash.jpg" alt="Photo Spectacle de Samedi (plans serrés)" />
@@ -236,34 +236,10 @@
                                 <div class="scene__fond--ecran">
                                     <!-- Lecteur avec film sélectionner -->
                                     <!-- Video de Vendredi plan large -->
-                                    <video controls controlslist="nodownload" class="vendredi-large" id="video_vendredi_large">
-                                        <source src="/media/cc0-videos/flower.webm"
+                                    <video controls controlslist="nodownload" class="vendredi-large" id="video">
+                                        <source id="src_webm" src="/media/cc0-videos/flower.webm"
                                                 type="video/webm">
-                                        <source src="videos/Enregistrement de l’écran 2022-05-10 à 23.46.23.mov"
-                                                type="video/mp4">
-                                        Sorry, your browser doesn't support embedded videos.
-                                    </video>
-                                    <!-- Video de Vendredi plan large & serré -->
-                                    <video controls controlslist="nodownload"  class="vendredi-serre" id="video_vendredi_serre">
-                                        <source src="/media/cc0-videos/flower.webm"
-                                                type="video/webm">
-                                        <source src="videos/Enregistrement de l’écran 2022-05-10 à 23.46.23.mov"
-                                                type="video/mp4">
-                                        Sorry, your browser doesn't support embedded videos.
-                                    </video>
-                                    <!-- Video de Samedi plan large -->
-                                    <video controls controlslist="nodownload"  class="samedi-large" id="video_samedi_large">
-                                        <source src="/media/cc0-videos/flower.webm"
-                                                type="video/webm">
-                                        <source src="videos/Enregistrement de l’écran 2022-05-10 à 23.46.23.mov"
-                                                type="video/mp4">
-                                        Sorry, your browser doesn't support embedded videos.
-                                    </video>
-                                    <!-- Video de Samedi plan large  & serré -->
-                                    <video controls controlslist="nodownload"  class="samedi-serre" id="video_samedi_serre">
-                                        <source src="/media/cc0-videos/flower.webm"
-                                                type="video/webm">
-                                        <source src="videos/Enregistrement de l’écran 2022-05-10 à 23.46.23.mov"
+                                        <source id="src_mp4" src="videos/film_presentation_de_saison_21_22_new.mp4"
                                                 type="video/mp4">
                                         Sorry, your browser doesn't support embedded videos.
                                     </video>
@@ -361,99 +337,53 @@
         let btn_vendredi_serre = document.getElementById("btn_vendredi_serre");
         let btn_samedi_large = document.getElementById("btn_samedi_large");
         let btn_samedi_serre = document.getElementById("btn_samedi_serre");
-        let video_vendredi_large = document.getElementById("video_vendredi_large");
-        let video_vendredi_serre = document.getElementById("video_vendredi_serre");
-        let video_samedi_large = document.getElementById("video_samedi_large");
-        let video_samedi_serre = document.getElementById("video_samedi_serre");
+        
         let div_danseuse = document.getElementById("div_danseuse");
         let ecran = document.getElementById("ecran");
         let rideau_left = document.getElementById("rideau-left");
         let rideau_right = document.getElementById("rideau-right");
 
+        var player = document.getElementById('video');
+        var mp4Vid = document.getElementById('src_mp4');
+        var webmVid = document.getElementById('src_webm');
+
         btn_vendredi_large.addEventListener("click", () => {
-            video_vendredi_serre.style.display = "none";
-            video_samedi_large.style.display = "none";
-            video_samedi_serre.style.display = "none";
-            if(getComputedStyle(video_vendredi_large).display != "none"){
-                video_vendredi_large.style.display = "none";
-                div_danseuse.style.display = "block"
-                ecran.style.zIndex = "-2"
-                ecran.style.transition = "z-index 100ms"
-                rideau_left.style.transform = "translateX(0)"
-                rideau_right.style.transform = "translateX(0)"
-            } else {
-                video_vendredi_large.style.display = "block";
-                div_danseuse.style.display = "none"
-                ecran.style.zIndex = "4"
-                ecran.style.transition = "z-index 100ms 1s"
-                rideau_left.style.transform = "translateX(-42%)"
-                rideau_right.style.transform = "translateX(42%)"
-            }
+            changeSource("videos/film_presentation_de_saison_21_22_new.mp4");
         })
 
         btn_vendredi_serre.addEventListener("click", () => {
-            video_vendredi_large.style.display = "none";
-            video_samedi_large.style.display = "none";
-            video_samedi_serre.style.display = "none";
-            if(getComputedStyle(video_vendredi_serre).display != "none"){
-                video_vendredi_serre.style.display = "none";
-                div_danseuse.style.display = "block"
-                ecran.style.zIndex = "-2"
-                ecran.style.transition = "z-index 100ms"
-                rideau_left.style.transform = "translateX(0)"
-                rideau_right.style.transform = "translateX(0)"
-            } else {
-                video_vendredi_serre.style.display = "block";
-                div_danseuse.style.display = "none"
-                ecran.style.zIndex = "4"
-                ecran.style.transition = "z-index 100ms 1s"
-                rideau_left.style.transform = "translateX(-42%)"
-                rideau_right.style.transform = "translateX(42%)"
-            }
+            changeSource("videos/Enregistrement_ecran_2022-05-10_a_23.46.23.mov");
         })
 
         btn_samedi_large.addEventListener("click", () => {
-            video_vendredi_large.style.display = "none";
-            video_vendredi_serre.style.display = "none";
-            video_samedi_serre.style.display = "none";
-            if(getComputedStyle(video_samedi_large).display != "none"){
-                video_samedi_large.style.display = "none";
-                div_danseuse.style.display = "block"
-                ecran.style.zIndex = "-2"
-                ecran.style.transition = "z-index 100ms"
-                rideau_left.style.transform = "translateX(0)"
-                rideau_right.style.transform = "translateX(0)"
-            } else {
-                video_samedi_large.style.display = "block";
-                div_danseuse.style.display = "none"
-                ecran.style.zIndex = "4"
-                ecran.style.transition = "z-index 100ms 1s"
-                rideau_left.style.transform = "translateX(-42%)"
-                rideau_right.style.transform = "translateX(42%)"
-            }
+            changeSource("videos/Voyage_Intro_2.mp4");
         })
 
         btn_samedi_serre.addEventListener("click", () => {
-            video_vendredi_large.style.display = "none";
-            video_vendredi_serre.style.display = "none";
-            video_samedi_large.style.display = "none";
-            if(getComputedStyle(video_samedi_serre).display != "none"){
-                video_samedi_serre.style.display = "none";
+            changeSource("videos/Voyage_VisagesChoregraphes.mp4");
+        })
+
+        function changeSource(url_src) {
+            player.pause();
+            if(getComputedStyle(player).display != "none" && mp4Vid.getAttribute('src') == url_src ){
+                player.style.display = "none";
                 div_danseuse.style.display = "block"
                 ecran.style.zIndex = "-2"
                 ecran.style.transition = "z-index 100ms"
                 rideau_left.style.transform = "translateX(0)"
                 rideau_right.style.transform = "translateX(0)"
             } else {
-                video_samedi_serre.style.display = "block";
+                mp4Vid.src = url_src;
+                player.style.display = "block";
+                player.load();
+                // player.play();
                 div_danseuse.style.display = "none"
                 ecran.style.zIndex = "4"
                 ecran.style.transition = "z-index 100ms 1s"
                 rideau_left.style.transform = "translateX(-42%)"
                 rideau_right.style.transform = "translateX(42%)"
             }
-        })
+        }
     </script>
-
 </body>
 </html>

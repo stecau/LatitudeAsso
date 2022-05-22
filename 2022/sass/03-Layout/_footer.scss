@@ -1,6 +1,6 @@
 .footer{
     background-color: $color-footer;
-    color: $color-primary;
+    color: $color-texte-secondary;
     padding: $medium;
     &__block{
         margin-top: $medium * 1.5;
@@ -25,7 +25,7 @@
         }
         &__link{
             text-decoration: none;
-            color: $color-primary;
+            color: $color-texte-secondary;
             font-size: $icon-size - 2px;
             & > i{
                 padding: 0 (2 * $very-small) 0 0;

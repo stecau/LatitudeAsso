@@ -13,16 +13,11 @@
 /* Definition of the Google font polices */
 /* For normal text */
 body {
-  font-family: "Roboto", Verdana, sans-serif;
+  font-family: "Permanent Marker", Verdana, sans-serif;
 }
 
-/* For titles H1 */
-h1, .footer > h2 {
-  font-family: "Shrikhand", Verdana, sans-serif;
-}
-
-/* For titles H1 exception in 'accueil' page */
-#acceuil {
+/* For footer */
+.footer {
   font-family: "Roboto", Verdana, sans-serif;
 }
 
@@ -54,21 +49,7 @@ h1, .footer > h2 {
 /* ========================================================================== */
 /* Specific 'button' variables */
 /* ========================================================================== */
-/* Specific 'fonctionnement' variables */
-/* Dimension for fonctionnement items */
-/* ========================================================================== */
-/* Specific 'restaurant figure' variables */
-/* resto-fig(link) responsive variables */
-/* ========================================================================== */
-/* Specific 'jaime' variables */
-/* ========================================================================== */
-/* Specific 'new' variables */
-/* ========================================================================== */
-/* Specific 'menu figure' variables */
-/* ========================================================================== */
-/* Specific 'plat' variables */
-/* ========================================================================== */
-/* Specific 'accueil' page variables */
+/* Specific 'video' variables */
 /* ========================================================================== */
 /* ===                              Functions                             === */
 /* ========================================================================== */
@@ -80,23 +61,11 @@ h1, .footer > h2 {
 /* ===                               Mixins                               === */
 /* ========================================================================== */
 /* Mixins for media queries */
-/* For Header */
 /* For Footer and resto-container */
 /* ========================================================================== */
 /* Global Mixin */
 /* Mixin for Flex display */
 /* Mixin for position of block */
-/* Mixin for css style of block from variable generation */
-/* ========================================================================== */
-/* Specific Mixin for nav behaviour */
-/* Mixin for link in the nav CSS style */
-/* ========================================================================== */
-/* Specific Mixin for plat animation */
-/* ========================================================================== */
-/* Specific Mixin for Loading spinner animation */
-/* Mixin for Loading spinner in order to style the rigth or the left div border */
-/* Mixin for Loading spinner in order to style the rigth or the left div container for hand */
-/* Mixin for Loading spinner in order to animate the rigth or the left  hand img */
 /* End import */
 /* ========================================================================== */
 /* ========================================================================== */
@@ -213,8 +182,8 @@ h1, .footer > h2 {
   z-index: 1;
   height: 85vw;
   width: 100vw;
-  background: -webkit-gradient(linear, left top, left bottom, from(transparent), to(white));
-  background: linear-gradient(transparent, white);
+  background: -webkit-gradient(linear, left top, left bottom, from(transparent), to(#FFFFFF));
+  background: linear-gradient(transparent, #FFFFFF);
 }
 
 .affiche__texture--anim {
@@ -247,6 +216,8 @@ h1, .footer > h2 {
   max-height: 75vw;
   -o-object-fit: scale-down;
      object-fit: scale-down;
+  -webkit-filter: drop-shadow(0 0 5px #a1a493);
+          filter: drop-shadow(0 0 5px #a1a493);
 }
 
 .affiche__texte {
@@ -280,6 +251,8 @@ h1, .footer > h2 {
   max-height: 75vw;
   -o-object-fit: scale-down;
      object-fit: scale-down;
+  -webkit-filter: drop-shadow(0 0 2px #a1a493);
+          filter: drop-shadow(0 0 2px #a1a493);
 }
 
 .affiche__texte--rogne:nth-child(2) {
@@ -297,6 +270,8 @@ h1, .footer > h2 {
      object-fit: scale-down;
   -webkit-transform: translate(-58%);
           transform: translate(-58%);
+  -webkit-filter: drop-shadow(0 0 2px #a1a493);
+          filter: drop-shadow(0 0 2px #a1a493);
 }
 
 .affiche__texte--rogne:nth-child(3) {
@@ -312,6 +287,8 @@ h1, .footer > h2 {
   max-height: 75vw;
   -o-object-fit: scale-down;
      object-fit: scale-down;
+  -webkit-filter: drop-shadow(0 0 2px #a1a493);
+          filter: drop-shadow(0 0 2px #a1a493);
 }
 
 .affiche__texte--rogne:nth-child(4) {
@@ -329,6 +306,8 @@ h1, .footer > h2 {
      object-fit: scale-down;
   -webkit-transform: translate(-40%);
           transform: translate(-40%);
+  -webkit-filter: drop-shadow(0 0 2px #a1a493);
+          filter: drop-shadow(0 0 2px #a1a493);
 }
 
 .affiche__texte > img:nth-child(5) {
@@ -339,6 +318,8 @@ h1, .footer > h2 {
   max-height: 75vw;
   -o-object-fit: scale-down;
      object-fit: scale-down;
+  -webkit-filter: drop-shadow(0 0 2px #a1a493);
+          filter: drop-shadow(0 0 2px #a1a493);
 }
 
 .affiche__texte > img:nth-child(6) {
@@ -349,6 +330,8 @@ h1, .footer > h2 {
   max-height: 75vw;
   -o-object-fit: scale-down;
      object-fit: scale-down;
+  -webkit-filter: drop-shadow(0 0 2px #a1a493);
+          filter: drop-shadow(0 0 2px #a1a493);
 }
 
 .affiche__texte > img:nth-child(7) {
@@ -359,6 +342,8 @@ h1, .footer > h2 {
   max-height: 75vw;
   -o-object-fit: scale-down;
      object-fit: scale-down;
+  -webkit-filter: drop-shadow(0 0 2px #a1a493);
+          filter: drop-shadow(0 0 2px #a1a493);
 }
 
 .affiche__titre {
@@ -388,6 +373,8 @@ h1, .footer > h2 {
   height: 80%;
   -o-object-fit: scale-down;
      object-fit: scale-down;
+  -webkit-filter: drop-shadow(0 0 10px #a1a493);
+          filter: drop-shadow(0 0 10px #a1a493);
 }
 
 .affiche__titre > img:nth-child(3) {
@@ -398,6 +385,8 @@ h1, .footer > h2 {
   height: 15%;
   -o-object-fit: scale-down;
      object-fit: scale-down;
+  -webkit-filter: drop-shadow(0 0 5px #a1a493);
+          filter: drop-shadow(0 0 5px #a1a493);
 }
 
 .affiche__titre > img:nth-child(4) {
@@ -408,6 +397,8 @@ h1, .footer > h2 {
   height: 12%;
   -o-object-fit: scale-down;
      object-fit: scale-down;
+  -webkit-filter: drop-shadow(0 0 5px #a1a493);
+          filter: drop-shadow(0 0 5px #a1a493);
 }
 
 .affiche__titre > img:nth-child(5) {
@@ -418,6 +409,8 @@ h1, .footer > h2 {
   height: 12%;
   -o-object-fit: scale-down;
      object-fit: scale-down;
+  -webkit-filter: drop-shadow(0 0 5px #a1a493);
+          filter: drop-shadow(0 0 5px #a1a493);
 }
 
 @-webkit-keyframes move-etoile {
@@ -472,47 +465,9 @@ h1, .footer > h2 {
   }
 }
 
-/* BEM for scene & scene animation*/
-.scene__fond {
-  width: 80%;
-  height: 500px;
-  background-color: #000000;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-.scene__fond--ecran {
-  margin-top: 5px;
-  width: 80%;
-  height: 500px;
-  background-color: #ffffff;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.scene__fond--ecran > video {
-  width: 90%;
-  max-height: 50vh;
-  min-height: 25vh;
-  -o-object-fit: scale-down;
-     object-fit: scale-down;
-  background-color: #000000;
-}
-
 /* BEM for button */
 .button {
-  color: #4d4e42;
+  color: #424339;
   background: -webkit-gradient(linear, left bottom, left top, from(#D2D3CB), to(#FFFFFF));
   background: linear-gradient(to top, #D2D3CB, #FFFFFF);
   padding: 10px 25px;
@@ -661,7 +616,7 @@ h1, .footer > h2 {
 
 .lecture__article .telechargement > a {
   text-decoration: none;
-  color: #4d4e42;
+  color: #424339;
 }
 
 .lecture__article .telechargement > a > i {
@@ -682,8 +637,8 @@ h1, .footer > h2 {
 .lecture__aside > h2 {
   margin: 0;
   padding: 50px 0 25px 25px;
-  color: #4d4e42;
-  text-shadow: 2px 2px 2px #8e917d;
+  color: #424339;
+  text-shadow: 2px 2px 2px #a1a493;
 }
 
 .lecture__aside .container {

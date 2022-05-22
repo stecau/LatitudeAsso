@@ -10,13 +10,13 @@
     &__article{
         margin-bottom: map-get($bottom-space, big);
         & .lecteur-area{
-            height: 28.125vw;
+            height: map-get($video-size , height );
             @include flex-display();
             & > video{
-                height: 28.125vw ;
-                width: 50vw;
+                height: map-get($video-size , height );
+                width: map-get($video-size , width );
                 object-fit: scale-down;
-                background-color: #000000;
+                background-color: $color-quaternary;
             }
         }
         & .telechargement{
@@ -24,8 +24,8 @@
             width: 200px;
             margin: $medium auto;
             & > a{
-                text-decoration: none;
-                color: scale-color($color-primary, $lightness: -65%);
+                text-decoration: map-get($a , text-decoration);
+                color: map-get($a , color);
                 & > i{
                     padding: $very-small;
                 }
@@ -38,8 +38,8 @@
         & > h2{
             margin: map-get($h2 , margin);
             padding: map-get($h2 , padding);
-            color: scale-color($color-primary, $lightness: -65%);
-            text-shadow: 2px 2px 2px scale-color($color-primary, $lightness: -35%);
+            color: map-get($h2 , color);
+            text-shadow: map-get($h2 , text-shadow);
         }
         & .container{
             @include flex-display(row, space-around)

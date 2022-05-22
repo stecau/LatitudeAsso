@@ -12,7 +12,7 @@
             @include block-position(absolute, 0, 0, none, none, 1);
             height: map-get($affiche_size , height) - 15vw;
             width: map-get($affiche_size , height);
-            background: linear-gradient(transparent, white);
+            background: linear-gradient(transparent, $color-secondary);
         }
         &--anim{
             opacity: 0;
@@ -30,6 +30,7 @@
             width: 80%;
             max-height: map-get($affiche_size , height) * 0.75;
             object-fit: scale-down;
+            filter: drop-shadow(0 0 5px $color-shadow);
         }
     }
     &__texte{
@@ -43,6 +44,7 @@
                 width: 180%;
                 max-height: map-get($affiche_size , height) * 0.75;
                 object-fit: scale-down;
+                filter: drop-shadow(0 0 2px $color-shadow);
             }
         }
         &--rogne:nth-child(2){
@@ -54,6 +56,7 @@
                 max-height: map-get($affiche_size , height) * 0.75;
                 object-fit: scale-down;
                 transform: translate(-58%);
+                filter: drop-shadow(0 0 2px $color-shadow);
             }
         }
         &--rogne:nth-child(3){
@@ -64,6 +67,7 @@
                 width: 270%;
                 max-height: map-get($affiche_size , height) * 0.75;
                 object-fit: scale-down;
+                filter: drop-shadow(0 0 2px $color-shadow);
             }
         }
         &--rogne:nth-child(4){
@@ -75,6 +79,7 @@
                 max-height: map-get($affiche_size , height) * 0.75;
                 object-fit: scale-down;
                 transform: translate(-40%);
+                filter: drop-shadow(0 0 2px $color-shadow);
             }
         }
         & > img:nth-child(5){
@@ -82,18 +87,21 @@
             width: 33%;
             max-height: map-get($affiche_size , height) * 0.75;
             object-fit: scale-down;
+            filter: drop-shadow(0 0 2px $color-shadow);
         }
         & > img:nth-child(6){
             @include block-position(absolute, 63%, none, none, 68%);
             width: 16%;
             max-height: map-get($affiche_size , height) * 0.75;
             object-fit: scale-down;
+            filter: drop-shadow(0 0 2px $color-shadow);
         }
         & > img:nth-child(7){
             @include block-position(absolute, 65%, none, none, 68.5%);
             width: 15%;
             max-height: map-get($affiche_size , height) * 0.75;
             object-fit: scale-down;
+            filter: drop-shadow(0 0 2px $color-shadow);
         }
     }
     &__titre{
@@ -111,21 +119,25 @@
             @include block-position(absolute, 0, none, none, 33%, 1);
             height: 80%;
             object-fit: scale-down;
+            filter: drop-shadow(0 0 10px $color-shadow);
         }
         & > img:nth-child(3){
             @include block-position(absolute, 62.5%, none, none, 33%, 1);
             height: 15%;
             object-fit: scale-down;
+            filter: drop-shadow(0 0 5px $color-shadow);
         }
         & > img:nth-child(4){
             @include block-position(absolute, 60%, none, none, 40.5%, 1);
             height: 12%;
             object-fit: scale-down;
+            filter: drop-shadow(0 0 5px $color-shadow);
         }
         & > img:nth-child(5){
             @include block-position(absolute, 60%, none, none, 47.5%, 1);
             height: 12%;
             object-fit: scale-down;
+            filter: drop-shadow(0 0 5px $color-shadow);
         }
     }
 }

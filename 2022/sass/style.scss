@@ -30,21 +30,11 @@
 /* Components for css INDEPENDANT blocks BEM (button,...) */
     /* Start import */
     /* BEM for download introduction*/
-@import "./04-Compsants/fonctionnement";
-    /* BEM for stars animation*/
-@import "./04-Compsants/etoile";
+@import "./04-Compsants/affiche";
     /* BEM for scene & scene animation*/
-    @import "./04-Compsants/scene";
-    /* BEM for restaurant preview (figure structure) */
-@import "./04-Compsants/resto-fig";
-    /* BEM for plat presentation in menu */
-@import "./04-Compsants/plat";
+@import "./04-Compsants/scene";
     /* BEM for button */
 @import "./04-Compsants/button";
-    /* BEM for new add-on */
-@import "./04-Compsants/new";
-    /* BEM for "J'aime" behaviour */
-@import "./04-Compsants/jaime";
     /* End import */
 /* ========================================================================== */
 

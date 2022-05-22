@@ -1,0 +1,155 @@
+.affiche{
+    height: map-get($affiche_size , height) - 15vw;
+    overflow: hidden;
+    @include block-position(relative);
+    &__texture{
+        @include block-position(relative);
+        & > img{
+            width: 125%;
+            object-fit: scale-down;
+        }
+        & > div{
+            @include block-position(absolute, 0, 0, none, none, 1);
+            height: map-get($affiche_size , height) - 15vw;
+            width: map-get($affiche_size , height);
+            background: linear-gradient(transparent, white);
+        }
+        &--anim{
+            opacity: 0;
+            animation: hide-texture 10s cubic-bezier(1, 1, 1, 1) infinite;
+            & > img{
+                animation: move-etoile 10s cubic-bezier(1, 1, 1, 1) infinite;
+            }
+            
+        }
+    }
+    &__danseuse{
+        @include block-position(absolute, 0, 0, 0, 0);
+        @include flex-display(row, flex-start, center, nowrap, no-adjust);
+        & > img{
+            width: 80%;
+            max-height: map-get($affiche_size , height) * 0.75;
+            object-fit: scale-down;
+        }
+    }
+    &__texte{
+        @include block-position(absolute, 0, 0, 0, 0);
+        @include flex-display(column, flex-start, center, nowrap, no-adjust);
+        &--rogne:nth-child(1){
+            width: 25%;
+            overflow: hidden;
+            @include block-position(absolute, 37%, none, none, 65%);
+            & > img{
+                width: 180%;
+                max-height: map-get($affiche_size , height) * 0.75;
+                object-fit: scale-down;
+            }
+        }
+        &--rogne:nth-child(2){
+            width: 25%;
+            overflow: hidden;
+            @include block-position(absolute, 40%, none, none, 67.5%);
+            & > img{
+                width: 180%;
+                max-height: map-get($affiche_size , height) * 0.75;
+                object-fit: scale-down;
+                transform: translate(-58%);
+            }
+        }
+        &--rogne:nth-child(3){
+            width: 18%;
+            overflow: hidden;
+            @include block-position(absolute, 22%, none, none, 57.5%);
+            & > img{
+                width: 270%;
+                max-height: map-get($affiche_size , height) * 0.75;
+                object-fit: scale-down;
+            }
+        }
+        &--rogne:nth-child(4){
+            width: 40%;
+            overflow: hidden;
+            @include block-position(absolute, 27%, none, none, 52.5%);
+            & > img{
+                width: 120%;
+                max-height: map-get($affiche_size , height) * 0.75;
+                object-fit: scale-down;
+                transform: translate(-40%);
+            }
+        }
+        & > img:nth-child(5){
+            @include block-position(absolute, 60%, none, none, 60%);
+            width: 33%;
+            max-height: map-get($affiche_size , height) * 0.75;
+            object-fit: scale-down;
+        }
+        & > img:nth-child(6){
+            @include block-position(absolute, 63%, none, none, 68%);
+            width: 16%;
+            max-height: map-get($affiche_size , height) * 0.75;
+            object-fit: scale-down;
+        }
+        & > img:nth-child(7){
+            @include block-position(absolute, 65%, none, none, 68.5%);
+            width: 15%;
+            max-height: map-get($affiche_size , height) * 0.75;
+            object-fit: scale-down;
+        }
+    }
+    &__titre{
+        @include block-position(relative);
+        height: 20vw;
+        & > div{
+            @include block-position(absolute, 0, 0, 0, 0);
+            background-color: $color-secondary;
+            opacity: 0;
+            animation: hide-texture 10s cubic-bezier(1, 1, 1, 1) infinite;
+            box-shadow: inset 0px -40px 20px -20px $color-primary;
+
+        }
+        & > img:nth-child(2){
+            @include block-position(absolute, 0, none, none, 33%, 1);
+            height: 80%;
+            object-fit: scale-down;
+        }
+        & > img:nth-child(3){
+            @include block-position(absolute, 62.5%, none, none, 33%, 1);
+            height: 15%;
+            object-fit: scale-down;
+        }
+        & > img:nth-child(4){
+            @include block-position(absolute, 60%, none, none, 40.5%, 1);
+            height: 12%;
+            object-fit: scale-down;
+        }
+        & > img:nth-child(5){
+            @include block-position(absolute, 60%, none, none, 47.5%, 1);
+            height: 12%;
+            object-fit: scale-down;
+        }
+    }
+}
+
+@keyframes move-etoile {
+    0%{
+        transform: translate( -1 * map-get($translation , x),  -1 * map-get($translation , y));
+    }
+    100%{
+        transform: translate(0, 0);
+    }
+}
+
+@keyframes hide-texture {
+    0%{
+        opacity: 0;
+    }
+    10%{
+        opacity: 1;
+    }
+    90%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}

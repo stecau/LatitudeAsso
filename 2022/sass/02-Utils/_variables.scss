@@ -88,6 +88,21 @@ $footer-responsive: (
 );
 
 /* ========================================================================== */
+/* Specific 'affiche' variables */
+$affiche_size: (
+    width: 100%,
+    height: 100vw
+);
+$texture_size: (
+    width: 2500px,
+    height: 3751px
+);
+$translation: (
+    x: 100px,
+    y: 600px
+);
+
+/* ========================================================================== */
 /* Specific 'button' variables */
 // No specific variables
 

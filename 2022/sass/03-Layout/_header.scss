@@ -1,35 +1,6 @@
 .header{
-    @include flex-display(row, space-between, space-between, wrap, no-adjust);
+    @include flex-display(column, space-between, space-between, nowrap, no-adjust);
     background-color: $color-primary;
-    &__link{
-        text-decoration: none; // No link default style
-        color: $color-texte-primary;
-        & > img{
-            box-sizing: border-box;
-            margin: $small $medium;
-            height: 75px;
-            object-fit: cover;
-            text-align: center;
-        }
-    }
-    .nav{
-        @include flex-display(row, space-around, space-around, nowrap, no-adjust);
-        width: 100%;
-        padding: $small 0;
-        background-color: $color-secondary;
-        box-shadow: inset 0px 20px 10px -10px $color-primary;
-        .nav-link{
-            text-decoration: none; // No link default style
-            color: $color-texte-primary;
-            display: flex; // Display with flexbox in order to align icon and texte;
-            &__icon{
-                @include nav-link-mixin(icon)
-            }
-            &__texte{
-                @include nav-link-mixin(texte)
-            }
-        }
-    }
 }
 
 

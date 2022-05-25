@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <title>Latitude 2022 - Voyage parmi les étoiles</title>
     <meta charset="UTF-8">
@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <noscript>Pour utiliser ce site, merci d'activer JavaScript.</noscript>
+
     <div id="bloc-page"> <!-- div for the page size max 1920px -->
         <header class="header">
             <!-- Inital affiche avec danseuse (afficher par défaut)-->
@@ -45,160 +47,110 @@
         </header>
 
         <!-- Creation of the 'Lecture' section -->
-        <section class="lecture"> <!-- id for anchor to visionnage area -->
-            <!-- Lecture article -->
-            <article class="lecture__article" id="visionnage">
-                <!-- Lecteur container -->
-                <div class="lecteur-area">
-                    <!-- Video bloc -->
-                    <video controls controlslist="nodownload" id="video">
-                        <source id="src_webm" src="" type="video/webm">
-                        <source id="src_mp4" src="" type="video/mp4">
-                        Sorry, your browser doesn't support embedded videos.
-                    </video>
-                </div>
-                <div class="telechargement button">
-                    <a href="" download="" id="download"><i class="fas fa-download"></i>Téléchargement</a>
-                </div>
-            </article>
+        <section id="film"> <!-- id for anchor to visionnage area -->
+            <!-- lecture title -->
+            <h2>
+                Sélection du film
+            </h2>
+            <div class="lecture">
+                <!-- Lecture article -->
+                <article class="lecture__article" id="visionnage">
+                    <!-- <iframe class="video-frame" title="- Vendredi - plans larges" id="frame_video" src="https://www.latitude.lp-visite360.com/frame.html"
+                    loading="lazy"></iframe> -->
+                    <div class="div_fermeture" id="fermeture">
+                        <i class="far fa-times-circle"></i>
+                    </div>
+                    <!-- Lecteur container -->
+                    <div class="video-frame">
+                        <!-- Video bloc -->
+                        <video controls controlslist="nodownload" id="video">
+                            <source id="src_webm" src="" type="video/webm">
+                            <source id="src_mp4" src="" type="video/mp4">
+                            Sorry, your browser doesn't support embedded videos.
+                        </video>
+                    </div>
+                    <div class="telechargement button">
+                        <a href="" download="" id="download"><i class="fas fa-download"></i>Téléchargement</a>
+                    </div>
+                </article>
 
-            <!-- aside -->
-            <aside class="lecture__aside">
-                <!-- aside title -->
-                <h2>
-                    Sélection du film
-                </h2>
-                <div class="container">
-                    <!-- 1st button : Spectacle de Vendredi (tout le monde) -->
-                    <div class="button button--spectacle" id="btn_vendredi_large">
-                        <i class="fas fa-play-circle"></i>
-                        <div>
-                            <span>- Vendredi -</span>
-                            <span class="smaller">plans larges</span>
+                <!-- aside -->
+                <aside class="lecture__aside">
+                    <div class="container">
+                        <!-- 1st button : Spectacle de Vendredi (tout le monde) -->
+                        <div class="button button--spectacle" id="btn_vendredi_large">
+                            <i class="fas fa-play-circle"></i>
+                            <div>
+                                <span>- Vendredi -</span>
+                                <span class="smaller">plans larges</span>
+                            </div>
+                        </div>
+                        <!-- 2nd button : Spectacle de Vendredi -->
+                        <div class="button button--spectacle" id="btn_vendredi_serre">
+                            <i class="fas fa-play-circle"></i>
+                            <div>
+                                <span>- Vendredi -</span>
+                                <span class="smaller">plans larges & serrés</span>
+                            </div>
+                        </div>
+                        <!-- 3rd button : Spectacle de Samedi (tout le monde) -->
+                        <div class="button button--spectacle" id="btn_samedi_large">
+                            <i class="fas fa-play-circle"></i>
+                            <div>
+                                <span>- Samedi -</span>
+                                <span class="smaller">plans larges</span>
+                            </div>
+                        </div>
+                        <!-- 4th button : Spectacle de Samedi -->
+                        <div class="button button--spectacle" id="btn_samedi_serre">
+                            <i class="fas fa-play-circle"></i>
+                            <div>
+                                <span>- Samedi -</span>
+                                <span class="smaller">plans larges & serrés</span>
+                            </div>
                         </div>
                     </div>
-                    <!-- 2nd button : Spectacle de Vendredi -->
-                    <div class="button button--spectacle" id="btn_vendredi_serre">
-                        <i class="fas fa-play-circle"></i>
-                        <div>
-                            <span>- Vendredi -</span>
-                            <span class="smaller">plans larges & serrés</span>
-                        </div>
-                    </div>
-                    <!-- 3rd button : Spectacle de Samedi (tout le monde) -->
-                    <div class="button button--spectacle" id="btn_samedi_large">
-                        <i class="fas fa-play-circle"></i>
-                        <div>
-                            <span>- Samedi -</span>
-                            <span class="smaller">plans larges</span>
-                        </div>
-                    </div>
-                    <!-- 4th button : Spectacle de Samedi -->
-                    <div class="button button--spectacle" id="btn_samedi_serre">
-                        <i class="fas fa-play-circle"></i>
-                        <div>
-                            <span>- Samedi -</span>
-                            <span class="smaller">plans larges & serrés</span>
-                        </div>
-                    </div>
-                </div>
-            </aside>
+                </aside>
+            </div>
         </section>
-
 
         <!-- Creation of the Footer -->
         <footer class="footer" id="contact">
             <div class="footer__block">
                 <h2>Latitude</h2>
                 <ul class="footer-list">
-                    <li><a class="footer-list__link" href="#contact"><i class="fas fa-map-marked-alt"></i>11400 Castelnaudary</a></li>
+                    <li><i class="fas fa-map-marked-alt"></i>11400 Castelnaudary</li>
                     <li><a class="footer-list__link" href="https://www.facebook.com/Latitude-Danse-contemporaine-975312699245086/"><i class="fab fa-facebook"></i></i>Page Facebook</a></li>
-                    <li><a class="footer-list__link" href="#tel:+33XXXXXXXXX"><i class="fas fa-phone"></i>Téléphone</a></li>
-                    <li><a class="footer-list__link" href="mailto:contact@ohmyfood.com?subject=Renseignement(s)&body=Votre&nbsp;message&nbsp;ici"><i class="fas fa-at"></i>Courriel</a></li>
+                    <!-- <li><a class="footer-list__link" href="#tel:+33XXXXXXXXX"><i class="fas fa-phone"></i>Téléphone</a></li> -->
+                    <li><a class="footer-list__link courrier" id="courrier1" href="#" data-courriel="adresse1"><i class="fas fa-at"></i>Courriel</a></li>
                 </ul>
             </div>
             <div class="footer__block">
                 <h2>Culture, images & gestes</h2>
                 <ul class="footer-list">
-                    <li><a class="footer-list__link" href="#contact"><i class="fas fa-map-marked-alt"></i>11150 Bram</a></li>
+                    <li><i class="fas fa-map-marked-alt"></i>11150 Bram</li>
                     <li><a class="footer-list__link" href="https://www.facebook.com/cultureimagesetgestes/"><i class="fab fa-facebook"></i></i>Page Facebook</a></li>
-                    <li><a class="footer-list__link" href="#tel:+33XXXXXXXXX"><i class="fas fa-phone"></i>Téléphone</a></li>
-                    <li><a class="footer-list__link" href="mailto:cigbram@gmail.com?subject=Renseignement(s)&body=Votre&nbsp;message&nbsp;ici"><i class="fas fa-at"></i>Courriel</a></li>
+                    <!-- <li><a class="footer-list__link" href="#tel:+33XXXXXXXXX"><i class="fas fa-phone"></i>Téléphone</a></li> -->
+                    <li><a class="footer-list__link courrier" id="courrier2" href="#" data-courriel="adresse2"><i class="fas fa-at"></i>Courriel</a></li>
                 </ul>
             </div>
             <div class="footer__block">
                 <h2>LIZZART Production</h2>
                 <ul class="footer-list">
-                    <li><a class="footer-list__link" href="#contact"><i class="fas fa-map-marked-alt"></i>Bretagne et Occitanie</a></li>
+                    <li><i class="fas fa-map-marked-alt"></i>Bretagne et Occitanie</li>
                     <li><a class="footer-list__link" href="https://www.lizzart-production.com/"><i class="fas fa-globe"></i>Site Internet</a></li>
-                    <li><a class="footer-list__link" href="#tel:+33XXXXXXXXX"><i class="fas fa-phone"></i>Téléphone</a></li>
-                    <li><a class="footer-list__link" href="mailto:eliza.chohadzhieva@lizzart-production.com?subject=Renseignement(s)&body=Votre&nbsp;message&nbsp;ici"><i class="fas fa-at"></i>Courriel</a></li>
+                    <!-- <li><a class="footer-list__link" href="#tel:+33XXXXXXXXX"><i class="fas fa-phone"></i>Téléphone</a></li> -->
+                    <li><a class="footer-list__link courrier" id="courrier3" href="#" data-courriel="adresse3"><i class="fas fa-at"></i>Courriel</a></li>
                 </ul>
+            </div>
+            <div class="createdBy">
+                <p>Site créé par Lizzart Production (2022)</p>
             </div>
         </footer>
     </div>
 
-    <!-- Script pour affichage film adéquat dans zone de Visionnage -->
-    <script>
-        let btn_vendredi_large = document.getElementById("btn_vendredi_large");
-        let btn_vendredi_serre = document.getElementById("btn_vendredi_serre");
-        let btn_samedi_large = document.getElementById("btn_samedi_large");
-        let btn_samedi_serre = document.getElementById("btn_samedi_serre");
-        
-        let ecran = document.getElementById("visionnage");
-        var player = document.getElementById('video');
-        var mp4Vid = document.getElementById('src_mp4');
-        var webmVid = document.getElementById('src_webm');
-        var download = document.getElementById('download');
-
-        ecran.style.height = "0";
-
-        btn_vendredi_large.addEventListener("click", () => {
-            changeSource("videos/film_presentation_de_saison_21_22_new.mp4");
-            event.preventDefault();
-        })
-
-        btn_vendredi_serre.addEventListener("click", () => {
-            changeSource("videos/Enregistrement_ecran_2022-05-10_a_23.46.23.mov");
-        })
-
-        btn_samedi_large.addEventListener("click", () => {
-            changeSource("videos/Voyage_Intro_2.mp4");
-        })
-
-        btn_samedi_serre.addEventListener("click", () => {
-            changeSource("videos/Voyage_VisagesChoregraphes.mp4");
-        })
-
-        function changeSource(url_src) {
-            player.pause();
-            download.setAttribute('href', url_src);
-            download.setAttribute('download',url_src);
-            if(getComputedStyle(ecran).height != "0" && mp4Vid.getAttribute('src') == url_src ){
-                ecran.style.height = "0"
-                mp4Vid.src = "";
-                src_webm.src = "";
-            } else {
-                mp4Vid.src = url_src;
-                src_webm.src = "";
-                ecran.style.height = calcul_height() + "px"
-                player.load();
-                // player.play();
-            }
-        }
-
-        function calcul_height() {
-            let vw = window.innerWidth;
-            let vh = window.innerHeight;
-            let telechargement = document.querySelector('.telechargement');
-            let offsetHeight = telechargement.offsetHeight;
-            let style = getComputedStyle(telechargement);
-            let topMargin = parseInt(style.marginTop);
-            let botMargin = parseInt(style.marginBottom);
-            let telechargement_height = offsetHeight + topMargin + botMargin;
-            let video_height = vw * ( 28.125 / 100 );
-            return telechargement_height + video_height
-        }
-    </script>
+    <!-- Javascripts -->
+    <script src="scripts/masque-courrier.js"></script>
+    <script src="scripts/affichage-lecteur.js"></script>
 </body>
 </html>

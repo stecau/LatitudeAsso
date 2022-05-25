@@ -2,6 +2,7 @@
     background-color: $color-footer;
     color: $color-texte-secondary;
     padding: $medium;
+    @include block-position(relative);
     &__block{
         margin-top: $medium * 1.5;
         & > h2{
@@ -17,19 +18,24 @@
             box-sizing: border-box;
             width: 100%;
             padding: $very-small 0;
+            color: $color-texte-secondary;
+            font-size: $icon-size - 2px;
+            & i{
+                padding: 0 (2 * $very-small) 0 0;
+            }
             @each $key, $value in $footer-responsive{
-                @include responsive($key){
-                    width: $value;
+                @each $sub_key, $sub_value in $value{
+                    @include responsive($key){
+                        &:nth-child(#{$sub_key}) {
+                            width: $sub_value;
+                        }
+                    }
                 }
             }
         }
         &__link{
             text-decoration: none;
             color: $color-texte-secondary;
-            font-size: $icon-size - 2px;
-            & > i{
-                padding: 0 (2 * $very-small) 0 0;
-            }
         }
     }
 }

@@ -60,9 +60,9 @@ $h3: (
 );
 $p: (
     margin: 0,
-    padding: $small $small 0 $small,
+    padding: $very-small $very-small $very-small $very-small,
     padding-top: $very-small,
-    font-size: 110%
+    font-size: 80%
 );
 
 $bottom-space: ( // distance for bottom margin or padding
@@ -87,8 +87,16 @@ $icon-size: 18px;
 /* Specific 'footer' variables */
     /* Footer responsive variables */
 $footer-responsive: (
-    tablette: 50%,
-    desktop: 25%
+    tablette: (
+        1: 50%,
+        2: 50%,
+        3: 100%
+    ),
+    desktop: (
+        1: 30%,
+        2: 30%,
+        3: 40%
+    )
 );
 
 /* ========================================================================== */
@@ -113,6 +121,6 @@ $translation: (
 /* ========================================================================== */
 /* Specific 'video' variables */
 $video-size: (
-    width: 50vw,
-    height: 28.125vw
+    width: 75vw,
+    height: 42.2vw
 );

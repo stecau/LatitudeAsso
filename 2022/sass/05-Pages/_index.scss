@@ -1,16 +1,32 @@
 #visionnage{
-    height: 0;
+    // height: 0;
     overflow: hidden;
     transition: height 300ms ease-in-out;
 }
 
+section > h2{
+    background-color: $color-primary;
+    margin: map-get($h2 , margin);
+    padding: map-get($h2 , padding);
+    color: map-get($h2 , color);
+    text-shadow: map-get($h2 , text-shadow);
+}
+
 .lecture{
     @include flex-display(column-reverse, flex-start, flex-start, nowrap, no-adjust);
+    @media screen and ( max-width: brkpt(map-get($responsive, desktop)) ) {
+        @include flex-display(column, flex-start, flex-start, nowrap, no-adjust);;
+    }
     background-color: $color-primary;
     &__article{
         margin-bottom: map-get($bottom-space, big);
-        & .lecteur-area{
+        @media screen and ( max-width: brkpt(map-get($responsive, desktop)) ) {
+            margin-bottom: 0;
+        }
+        @include block-position(relative);
+        & .video-frame{
             height: map-get($video-size , height );
+            border: none;
             @include flex-display();
             & > video{
                 height: map-get($video-size , height );
@@ -35,12 +51,6 @@
     &__aside{
         @include flex-display(column, flex-start, flex-start, nowrap, no-adjust);
         padding-bottom: map-get($bottom-space, big);
-        & > h2{
-            margin: map-get($h2 , margin);
-            padding: map-get($h2 , padding);
-            color: map-get($h2 , color);
-            text-shadow: map-get($h2 , text-shadow);
-        }
         & .container{
             @include flex-display(row, space-around)
         }

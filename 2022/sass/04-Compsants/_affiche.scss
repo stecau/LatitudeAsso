@@ -60,11 +60,11 @@
             }
         }
         &--rogne:nth-child(3){
-            width: 18%;
+            width: 19%;
             overflow: hidden;
-            @include block-position(absolute, 22%, none, none, 57.5%);
+            @include block-position(absolute, 22%, none, none, 56.5%);
             & > img{
-                width: 270%;
+                width: 260%;
                 max-height: map-get($affiche_size , height) * 0.75;
                 object-fit: scale-down;
                 filter: drop-shadow(0 0 2px $color-shadow);

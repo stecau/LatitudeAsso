@@ -2,7 +2,7 @@
     color: $color-texte-primary;
     background: linear-gradient(to top, $color-primary, $color-secondary);
     padding: $very-small * 2 $medium;
-    margin: ($medium + 10px) $very-small ($big + 10px) $very-small;
+    margin: $medium $very-small $medium $very-small;
     border-radius: map-get($radius-size, big);
     box-shadow: 0px 8px 3px 3px $color-shadow;
     cursor: pointer;

@@ -1,5 +1,5 @@
 .div_fermeture{
-    @include block-position(absolute, 10px, 15vw, none, none, 1);
+    @include block-position(absolute, 10px, 25vw, none, none, 1);
     cursor: pointer;
     & > i{
         color: $color-texte-secondary;

@@ -9,47 +9,70 @@ let ecran = document.getElementById("visionnage");
 var player = document.getElementById('video');
 var mp4Vid = document.getElementById('src_mp4');
 var webmVid = document.getElementById('src_webm');
+var chapters = document.getElementById('track_vtt');
 var download = document.getElementById('download');
 
 ecran.style.height = "0";
 
 btn_vendredi_large.addEventListener("click", () => {
-    changeSource("videos/film_presentation_de_saison_21_22_new.mp4");
+    changeSource("videos/edit-3-vendredi-larges-HB-logo.mp4", 
+                 "videos/edit-3-vendredi-larges-HB-logo.webm",
+                 "videos/edit-3-vendredi-chapters.vtt");
+    // changeSource("");
+
     window.location = "#film";
 })
 
 btn_vendredi_serre.addEventListener("click", () => {
-    changeSource("videos/edit3-vendredi.mp4");
+    changeSource("videos/edit-3-vendredi-larges-serres-HB-logo.mp4",
+                 "videos/edit-3-vendredi-larges-serres-HB-logo.webm",
+                 "videos/edit-3-vendredi-chapters.vtt");
+    // changeSource("");
     window.location = "#film";
 })
 
 btn_samedi_large.addEventListener("click", () => {
-    changeSource("videos/Voyage_Intro_2.mp4");
+    changeSource("videos/edit-3-samedi-larges-HB-logo.mp4",
+                 "videos/edit-3-samedi-larges-HB-logo.webm",
+                 "videos/edit-3-samedi-chapters.vtt");
+    // changeSource("");
     window.location = "#film";
 })
 
 btn_samedi_serre.addEventListener("click", () => {
-    changeSource("videos/Voyage_VisagesChoregraphes.mp4");
+    changeSource("videos/edit-3-samedi-larges-serres-HB-logo.mp4", 
+                 "videos/edit-3-samedi-larges-serres-HB-logo.webm",
+                 "videos/edit-3-samedi-chapters.vtt");
+    // changeSource("");
     window.location = "#film";
 })
 
 fermeture.addEventListener("click", () => {
-    changeSource(mp4Vid.getAttribute('src'));
+    changeSource(mp4Vid.getAttribute('src'), chapters.getAttribute('src'));
+    // changeSource("");
     window.location = "#film";
 })
 
 // Fonctions spécifiques pour cette partie de JavaScript
-function changeSource(url_src) {
+function changeSource(url_src_mp4, url_src_webm, url_chapters) {
     player.pause();
-    download.setAttribute('href', url_src);
-    download.setAttribute('download',url_src);
-    if(getComputedStyle(ecran).height != "0" && mp4Vid.getAttribute('src') == url_src ){
+    download.setAttribute('href', url_src_mp4);
+    download.setAttribute('download',url_src_mp4);
+    if (getComputedStyle(ecran).height != "0" && mp4Vid.getAttribute('src') == url_src_mp4 ){
         ecran.style.height = "0"
         mp4Vid.src = "";
         src_webm.src = "";
+        chapters.src = "";
     } else {
-        mp4Vid.src = url_src;
-        src_webm.src = "";
+        if (mp4Vid.getAttribute('src') != url_src_mp4 ) {
+            // console.log("Affichage chapter (url modif) ?");
+            chapters.src = "";
+            displayChapters(chapters);
+        }
+        mp4Vid.src = url_src_mp4;
+        src_webm.src = url_src_webm;
+        chapters.src = url_chapters;
+        // console.log("Affichage chapter ?")
         ecran.style.height = calcul_height() + "px"
         player.load();
         // player.play();
@@ -59,7 +82,7 @@ function changeSource(url_src) {
 function calcul_height() {
     let vw = window.innerWidth;
     let vh = window.innerHeight;
-    let telechargement = document.querySelector('.telechargement');
+    let telechargement = document.querySelector('.telechargement.calcul-height');
     let offsetHeight = telechargement.offsetHeight;
     let style = getComputedStyle(telechargement);
     let topMargin = parseInt(style.marginTop);

@@ -21,6 +21,8 @@
 
         gtag('config', 'G-0T711S5EJ9');
     </script>
+    <!-- Script for chapters -->
+    <script src="scripts/affichage-chapters.js"></script>
 </head>
 <body>
     <noscript>Pour utiliser ce site, merci d'activer JavaScript.</noscript>
@@ -55,6 +57,26 @@
             </div>
         </header>
 
+        <!-- Creation of the 'Programme' section -->
+        <section>
+            <!-- Section title -->
+            <h2>
+                Le programme du spectacle
+            </h2>
+            <div class="programme">
+                <!-- Programme article -->
+                <article class="programme__article">
+                    <!-- <embed src="pdf/programme-spectacle-2022.pdf" width="800" height="500" type="application/pdf"/> -->
+                    <object data="pdf/programme-spectacle-2022.pdf" type="application/pdf" typemustmatch>
+                        <p>Vous n'avez pas de plugin PDF mais vous pouvez télécharger le fichier grâce au bouton 'téléchargement' ci dessous.</p>
+                        <div class="telechargement button">
+                            <a href="pdf/programme-spectacle-2022.pdf" download=""><i class="fas fa-download"></i>Téléchargement</a>
+                        </div>
+                    </object>
+                </article>
+            </div>
+        </section>
+
         <!-- Creation of the 'Lecture' section -->
         <section id="film"> <!-- id for anchor to visionnage area -->
             <!-- lecture title -->
@@ -70,15 +92,21 @@
                         <i class="far fa-times-circle"></i>
                     </div>
                     <!-- Lecteur container -->
-                    <div class="video-frame">
-                        <!-- Video bloc -->
+
+                    <figure class="video-frame" id="video-track-container">
                         <video controls controlslist="nodownload" id="video">
+                        <!-- <video controls="" crossorigin="anonymous" height="720" id="downtown-los-angeles"  width="1280" poster="https://s3.amazonaws.com/static.nicic.gov/Assets/big-buck-poster.png"> -->
                             <source id="src_webm" src="" type="video/webm">
                             <source id="src_mp4" src="" type="video/mp4">
-                            Sorry, your browser doesn't support embedded videos.
+                            <!-- <track id="track_vtt" src="" kind="chapters" srclang="fr" /> -->
+                            <track id="track_vtt" default="" kind="chapters" label="Locations" src="" srclang="fr" onload="displayChapters(this)" />
+                            Your browser does not support the video tag.
                         </video>
-                    </div>
-                    <div class="telechargement button">
+                        <figcaption>
+                            <ol class="chapters"></ol>
+                        </figcaption>
+                    </figure>
+                    <div class="telechargement button calcul-height">
                         <a href="" download="" id="download"><i class="fas fa-download"></i>Téléchargement</a>
                     </div>
                 </article>

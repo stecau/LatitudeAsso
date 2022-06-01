@@ -15,30 +15,30 @@ var download = document.getElementById('download');
 ecran.style.height = "0";
 
 btn_vendredi_large.addEventListener("click", () => {
-    changeSource("videos/spectacle-vendredi-larges-HB-logo.mp4", 
-                 "videos/spectacle-vendredi-larges-HB-logo.webm",
-                 "videos/spectacle-vendredi-chapters.vtt");
+    changeSource("videos/latitude-spectacle-2022-vendredi-larges.mp4", 
+                 "videos/latitude-spectacle-2022-vendredi-larges.webm",
+                 "videos/latitude-spectacle-2022-vendredi-chapters.vtt");
     window.location = "#film";
 })
 
 btn_vendredi_serre.addEventListener("click", () => {
-    changeSource("videos/spectacle-vendredi-larges-serres-HB-logo.mp4",
-                 "videos/spectacle-vendredi-larges-serres-HB-logo.webm",
-                 "videos/spectacle-vendredi-chapters.vtt");
+    changeSource("videos/latitude-spectacle-2022-vendredi-larges-serres.mp4",
+                 "videos/latitude-spectacle-2022-vendredi-larges-serres.webm",
+                 "videos/latitude-spectacle-2022-vendredi-chapters.vtt");
     window.location = "#film";
 })
 
 btn_samedi_large.addEventListener("click", () => {
-    changeSource("videos/spectacle-samedi-larges-HB-logo.mp4",
-                 "videos/spectacle-samedi-larges-HB-logo.webm",
-                 "videos/spectacle-samedi-chapters.vtt");
+    changeSource("videos/latitude-spectacle-2022-samedi-larges.mp4",
+                 "videos/latitude-spectacle-2022-samedi-larges.webm",
+                 "videos/latitude-spectacle-2022-samedi-chapters.vtt");
     window.location = "#film";
 })
 
 btn_samedi_serre.addEventListener("click", () => {
-    changeSource("videos/spectacle-samedi-larges-serres-HB-logo.mp4", 
-                 "videos/spectacle-samedi-larges-serres-HB-logo.webm",
-                 "videos/spectacle-samedi-chapters.vtt");
+    changeSource("videos/latitude-spectacle-2022-samedi-larges-serres.mp4", 
+                 "videos/latitude-spectacle-2022-samedi-larges-serres.webm",
+                 "videos/latitude-spectacle-2022-samedi-chapters.vtt");
     window.location = "#film";
 })
 

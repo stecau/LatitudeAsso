@@ -15,30 +15,30 @@ var download = document.getElementById('download');
 ecran.style.height = "0";
 
 btn_vendredi_large.addEventListener("click", () => {
-    changeSource("videos/edit-3-vendredi-larges-HB-logo.mp4", 
-                 "videos/edit-3-vendredi-larges-HB-logo.webm",
-                 "videos/edit-3-vendredi-chapters.vtt");
+    changeSource("videos/ spectacle-vendredi-larges-HB-logo.mp4", 
+                 "videos/ spectacle-vendredi-larges-HB-logo.webm",
+                 "videos/ spectacle-vendredi-chapters.vtt");
     window.location = "#film";
 })
 
 btn_vendredi_serre.addEventListener("click", () => {
-    changeSource("videos/edit-3-vendredi-larges-serres-HB-logo.mp4",
-                 "videos/edit-3-vendredi-larges-serres-HB-logo.webm",
-                 "videos/edit-3-vendredi-chapters.vtt");
+    changeSource("videos/ spectacle-vendredi-larges-serres-HB-logo.mp4",
+                 "videos/ spectacle-vendredi-larges-serres-HB-logo.webm",
+                 "videos/ spectacle-vendredi-chapters.vtt");
     window.location = "#film";
 })
 
 btn_samedi_large.addEventListener("click", () => {
-    changeSource("videos/edit-3-samedi-larges-HB-logo.mp4",
-                 "videos/edit-3-samedi-larges-HB-logo.webm",
-                 "videos/edit-3-samedi-chapters.vtt");
+    changeSource("videos/ spectacle-samedi-larges-HB-logo.mp4",
+                 "videos/ spectacle-samedi-larges-HB-logo.webm",
+                 "videos/ spectacle-samedi-chapters.vtt");
     window.location = "#film";
 })
 
 btn_samedi_serre.addEventListener("click", () => {
-    changeSource("videos/edit-3-samedi-larges-serres-HB-logo.mp4", 
-                 "videos/edit-3-samedi-larges-serres-HB-logo.webm",
-                 "videos/edit-3-samedi-chapters.vtt");
+    changeSource("videos/ spectacle-samedi-larges-serres-HB-logo.mp4", 
+                 "videos/ spectacle-samedi-larges-serres-HB-logo.webm",
+                 "videos/ spectacle-samedi-chapters.vtt");
     window.location = "#film";
 })
 

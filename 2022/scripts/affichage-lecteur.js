@@ -18,8 +18,6 @@ btn_vendredi_large.addEventListener("click", () => {
     changeSource("videos/edit-3-vendredi-larges-HB-logo.mp4", 
                  "videos/edit-3-vendredi-larges-HB-logo.webm",
                  "videos/edit-3-vendredi-chapters.vtt");
-    // changeSource("");
-
     window.location = "#film";
 })
 
@@ -27,7 +25,6 @@ btn_vendredi_serre.addEventListener("click", () => {
     changeSource("videos/edit-3-vendredi-larges-serres-HB-logo.mp4",
                  "videos/edit-3-vendredi-larges-serres-HB-logo.webm",
                  "videos/edit-3-vendredi-chapters.vtt");
-    // changeSource("");
     window.location = "#film";
 })
 
@@ -35,7 +32,6 @@ btn_samedi_large.addEventListener("click", () => {
     changeSource("videos/edit-3-samedi-larges-HB-logo.mp4",
                  "videos/edit-3-samedi-larges-HB-logo.webm",
                  "videos/edit-3-samedi-chapters.vtt");
-    // changeSource("");
     window.location = "#film";
 })
 
@@ -43,13 +39,11 @@ btn_samedi_serre.addEventListener("click", () => {
     changeSource("videos/edit-3-samedi-larges-serres-HB-logo.mp4", 
                  "videos/edit-3-samedi-larges-serres-HB-logo.webm",
                  "videos/edit-3-samedi-chapters.vtt");
-    // changeSource("");
     window.location = "#film";
 })
 
 fermeture.addEventListener("click", () => {
     changeSource(mp4Vid.getAttribute('src'), chapters.getAttribute('src'));
-    // changeSource("");
     window.location = "#film";
 })
 
